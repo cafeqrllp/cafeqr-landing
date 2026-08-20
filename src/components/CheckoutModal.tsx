@@ -239,7 +239,7 @@ export default function CheckoutModal({ plan, onClose, backendApiUrl }: Checkout
                 </div>
               )}
               <a
-                href={typeof window !== 'undefined' && (window.location.hostname.includes('test') || window.location.hostname.includes('localhost')) ? 'https://cafe-test-qr-frontend.vercel.app/login' : 'https://pos.cafeqr.in/login'}
+                href={typeof window !== 'undefined' && (window.location.hostname.includes('test') || window.location.hostname.includes('localhost')) ? 'https://cafe-test-qr-frontend.vercel.app/login' : 'https://cafeqr-frontend.pages.dev/login/'}
                 className="w-full py-3.5 bg-primary hover:bg-orange-600 text-white font-bold rounded-xl text-sm transition-colors block text-center shadow-lg shadow-orange-500/20"
               >
                 Go to POS Login →

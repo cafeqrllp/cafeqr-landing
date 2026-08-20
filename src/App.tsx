@@ -106,9 +106,9 @@ const getPosLoginUrl = (): string => {
     if (hostname.includes('test') || hostname === 'localhost' || hostname === '127.0.0.1') {
       return 'https://cafe-test-qr-frontend.vercel.app/login';
     }
-    return 'https://pos.cafeqr.in/login';
+    return 'https://cafeqr-frontend.pages.dev/login/';
   }
-  return 'https://pos.cafeqr.in/login';
+  return 'https://cafeqr-frontend.pages.dev/login/';
 };
 
 const getBackendApiUrl = (): string => {
@@ -127,7 +127,7 @@ const getBackendApiUrl = (): string => {
 function App() {
   const [currentView, setCurrentView] = useState<'home' | 'terms'>('home');
   const [activeApp, setActiveApp] = useState<'pos' | 'delivery'>('pos');
-  const [posLoginUrl, setPosLoginUrl] = useState<string>('https://pos.cafeqr.in/login');
+  const [posLoginUrl, setPosLoginUrl] = useState<string>('https://cafeqr-frontend.pages.dev/login/');
   const [backendApiUrl, setBackendApiUrl] = useState<string>('https://api.cafeqr.in');
   const [checkoutPlan, setCheckoutPlan] = useState<PricingPlan | null>(null);
 
