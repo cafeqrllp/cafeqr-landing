@@ -119,9 +119,9 @@ const getBackendApiUrl = (): string => {
     if (hostname.includes('test') || hostname === 'localhost' || hostname === '127.0.0.1') {
       return 'https://test-api.cafeqr.in';
     }
-    return 'https://api.cafeqr.in';
+    return 'https://app.cafeqr.in';
   }
-  return 'https://api.cafeqr.in';
+  return 'https://app.cafeqr.in';
 };
 
 function App() {
