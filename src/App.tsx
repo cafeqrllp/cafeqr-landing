@@ -354,9 +354,23 @@ function App() {
                     />
                   </div>
                 ) : (
-                  <div className={`h-48 rounded-2xl flex flex-col items-center justify-center mb-6 ${plan.highlight ? 'bg-zinc-800/50' : 'bg-zinc-50'}`}>
-                    <Smartphone className={`w-16 h-16 ${plan.highlight ? 'text-primary' : 'text-zinc-300'}`} />
-                    <span className={`text-xs mt-3 font-bold ${plan.highlight ? 'text-zinc-400' : 'text-zinc-400'}`}>Software License Only</span>
+                  <div className={`h-48 rounded-2xl flex flex-col items-center justify-center mb-6 overflow-hidden ${plan.highlight ? 'bg-zinc-800/50' : 'bg-zinc-50'}`}>
+                    <img
+                      src="/software-license.png"
+                      alt="Software License"
+                      className="h-28 object-contain drop-shadow-lg mb-2"
+                      onError={(e) => {
+                        (e.currentTarget as HTMLElement).style.display = 'none';
+                        const parent = (e.currentTarget as HTMLElement).parentElement;
+                        if (parent && !parent.querySelector('.software-fallback')) {
+                          const div = document.createElement('div');
+                          div.className = 'software-fallback flex flex-col items-center justify-center text-center';
+                          div.innerHTML = `<span class="text-4xl">📱</span>`;
+                          parent.insertBefore(div, parent.firstChild);
+                        }
+                      }}
+                    />
+                    <span className={`text-xs font-bold ${plan.highlight ? 'text-zinc-400' : 'text-zinc-400'}`}>Software License Only</span>
                   </div>
                 )}
 
