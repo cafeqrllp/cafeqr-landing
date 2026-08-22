@@ -1,0 +1,32 @@
+# Robots.txt for CafeQR (https://www.cafeqr.in)
+
+User-agent: *
+Allow: /
+
+# Allow AI Search Engine Crawlers (Generative Engine Optimization - GEO/AIO)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+# Sitemap Index Link
+Sitemap: https://www.cafeqr.in/sitemap.xml
