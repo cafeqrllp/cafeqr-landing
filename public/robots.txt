@@ -2,6 +2,13 @@
 
 User-agent: *
 Allow: /
+# Robots.txt for CafeQR (https://cafeqr.in)
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /login
+Disallow: /api/
 
 # Allow AI Search Engine Crawlers (Generative Engine Optimization - GEO/AIO)
 User-agent: GPTBot
@@ -30,3 +37,4 @@ Allow: /
 
 # Sitemap Index Link
 Sitemap: https://www.cafeqr.in/sitemap.xml
+
