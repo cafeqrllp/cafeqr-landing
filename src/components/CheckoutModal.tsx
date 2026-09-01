@@ -70,11 +70,15 @@ export default function CheckoutModal({ plan, onClose, backendApiUrl }: Checkout
     if (!form.name.trim()) e.name = 'Name is required';
     if (!form.phone.trim() || !/^[6-9]\d{9}$/.test(form.phone)) e.phone = 'Enter a valid 10-digit mobile number';
     if (!form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = 'Enter a valid email';
-    if (!form.addressLine1.trim()) e.addressLine1 = 'Address is required';
-    if (!form.area.trim()) e.area = 'Area/locality is required';
-    if (!form.city.trim()) e.city = 'City is required';
-    if (!form.state.trim()) e.state = 'State is required';
-    if (!form.pincode.trim() || !/^\d{6}$/.test(form.pincode)) e.pincode = 'Enter a valid 6-digit pincode';
+    
+    if (plan?.printer) {
+      if (!form.addressLine1.trim()) e.addressLine1 = 'Address is required';
+      if (!form.area.trim()) e.area = 'Area/locality is required';
+      if (!form.city.trim()) e.city = 'City is required';
+      if (!form.state.trim()) e.state = 'State is required';
+      if (!form.pincode.trim() || !/^\d{6}$/.test(form.pincode)) e.pincode = 'Enter a valid 6-digit pincode';
+    }
+    
     setErrors(e);
     return Object.keys(e).length === 0;
   };
