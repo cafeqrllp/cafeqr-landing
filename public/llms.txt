@@ -1,0 +1,30 @@
+# Cafe QR POS & Accounting Software
+
+Cafe QR is a powerful, yet simple, Point of Sale (POS), billing, and accounting software designed for restaurants, cafes, bakeries, retail stores, and general businesses. It includes an integrated zero-commission online delivery website generator.
+
+## About
+Cafe QR provides complete ERP solutions, allowing business owners to generate GST-compliant tax invoices, track inventory, manage customer credit ledgers, and handle full accounting/expense tracking from a single centralized dashboard.
+
+## Core Features
+- POS & Fast Billing: Generate bills in seconds. Perfect for quick-service and retail.
+- Accounting & Expense Tracking: Maintain financial records, daily sales, and profit margins.
+- Free Online Delivery App: Zero-commission branded website for online orders and takeaways.
+- Digital QR Menu: Table-based QR code self-ordering for dine-in customers.
+- Inventory Management: Multi-variant stock tracking (by size, weight) and low-stock alerts.
+- Offline Billing: Continue billing even without internet; data syncs to the cloud automatically.
+- Multi-Kitchen KOT Routing: Send orders directly to kitchen thermal printers.
+- Hardware Support: Native support for ESC/POS Bluetooth and USB Thermal Printers.
+
+## Target Audience
+- Restaurants, Cafes, and Fine Dining
+- Bakeries and Confectioneries
+- Grocery Stores and Supermarkets
+- Fashion and Apparel Retail
+- General Businesses requiring simple billing and accounting software
+
+## Payment Integrations
+Supports Razorpay, UPI QR Codes, Credit/Debit Cards, Netbanking, and Cash on Delivery.
+
+## Contact & Links
+- Main Website: https://www.cafeqr.in/
+- Phone/Support: +91-7012120844
