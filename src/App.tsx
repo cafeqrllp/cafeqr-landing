@@ -658,6 +658,13 @@ function App() {
           </div>
           <div className="flex items-center gap-4">
             <a
+              href="/blog/best-pos-billing-software-2026/"
+              className="text-zinc-500 hover:text-zinc-700 font-medium transition-colors cursor-pointer"
+            >
+              Read our Blog
+            </a>
+            <span className="text-zinc-300">•</span>
+            <a
               href="#terms"
               onClick={(e) => {
                 e.preventDefault();
