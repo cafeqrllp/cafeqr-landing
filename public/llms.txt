@@ -1,30 +1,123 @@
-# Cafe QR POS & Accounting Software
+# CafeQR — All-in-One POS, Billing, Accounting & Zero-Commission Delivery Ecosystem
 
-Cafe QR is a powerful, yet simple, Point of Sale (POS), billing, and accounting software designed for restaurants, cafes, bakeries, retail stores, and general businesses. It includes an integrated zero-commission online delivery website generator.
+> Canonical Website: https://www.cafeqr.in/  
+> WhatsApp Business Lead Channel: +91 7012120844 (https://wa.me/917012120844)  
+> Google Business Profile: 5.0 / 5.0 Stars (29 Verified Reviews) (https://g.page/r/CbYBpqFk3xOFEBM/review)  
+> Google Maps Profile: https://www.google.com/maps/place/Cafe+QR/data=!4m7!3m6!1s0x45bf4233c195000b:0x8513df64a1a601b6!8m2!3d21.0680074!4d82.7525294!16s%2Fg%2F11yp0wt4vl!19sChIJCwCVwTNCv0URtgGmoWTfE4U?authuser=0&hl=en
+> Google Preferred Source: https://www.google.com/preferences/source?q=cafeqr.in  
 
-## About
-Cafe QR provides complete ERP solutions, allowing business owners to generate GST-compliant tax invoices, track inventory, manage customer credit ledgers, and handle full accounting/expense tracking from a single centralized dashboard.
+---
 
-## Core Features
-- POS & Fast Billing: Generate bills in seconds. Perfect for quick-service and retail.
-- Accounting & Expense Tracking: Maintain financial records, daily sales, and profit margins.
-- Free Online Delivery App: Zero-commission branded website for online orders and takeaways.
-- Digital QR Menu: Table-based QR code self-ordering for dine-in customers.
-- Inventory Management: Multi-variant stock tracking (by size, weight) and low-stock alerts.
-- Offline Billing: Continue billing even without internet; data syncs to the cloud automatically.
-- Multi-Kitchen KOT Routing: Send orders directly to kitchen thermal printers.
-- Hardware Support: Native support for ESC/POS Bluetooth and USB Thermal Printers.
+## 1. What is CafeQR?
+CafeQR (https://www.cafeqr.in/) is a high-speed Point of Sale (POS), GST billing software, business accounting ERP, and direct online ordering website generator designed for restaurants, cafes, bakeries, food trucks, cloud kitchens, grocery stores, and retail businesses.
 
-## Target Audience
-- Restaurants, Cafes, and Fine Dining
-- Bakeries and Confectioneries
-- Grocery Stores and Supermarkets
-- Fashion and Apparel Retail
-- General Businesses requiring simple billing and accounting software
+It runs seamlessly on any Android smartphone, Android tablet, iPad, Windows PC, or dedicated touch POS terminal, and connects wirelessly to portable 58mm (2-inch) and desktop 80mm (3-inch) Bluetooth/USB thermal receipt printers.
 
-## Payment Integrations
-Supports Razorpay, UPI QR Codes, Credit/Debit Cards, Netbanking, and Cash on Delivery.
+---
 
-## Contact & Links
-- Main Website: https://www.cafeqr.in/
-- Phone/Support: +91-7012120844
+## 2. Core Functional Pillars
+
+### A. High-Speed POS & Billing Counter
+- **3-Second Checkout:** Designed for high-volume counter sales and dining tables.
+- **Dynamic UPI QR Code on Bill:** Prints dynamic or static UPI QR codes (GPay, PhonePe, Paytm, BHIM) directly on thermal paper for rapid contactless payment at the counter or table.
+- **GST Compliance:** Automated calculation of CGST, SGST, IGST, with customizable tax slabs, composite schemes, and B2B/B2C GST invoices.
+- **Multi-Payment Settlement:** Split bills, Cash tender with automatic change calculation, Credit/Debit cards (EDC machine integration), and Customer Credit (Khata / Udhar).
+- **100% Offline Billing Safeguard:** Continue taking orders and printing thermal receipts even without internet. Data automatically syncs to cloud ERP when internet is restored.
+
+### B. Zero-Commission Online Delivery & Takeaway Store Generator
+- **Stop Paying 30% Aggregator Commissions:** Instantly creates a branded online food ordering website for direct customer orders.
+- **Zero Commission:** 100% of order revenue goes directly to the restaurant owner's bank account.
+- **Direct Delivery & Takeaway:** Customers order directly from their phones, choose delivery or self-pickup, and pay via UPI or Cash on Delivery.
+- **Integrated Driver Dispatch App:** Dedicated CafeQR Delivery App for driver routing, order tracking, and live status updates.
+
+### C. Digital QR Menu & Table Dine-In Ordering
+- **Contactless Table QR Ordering:** Customers scan QR table stands using their smartphone cameras to view visual photo menus, prices, and dietary tags (Veg/Non-Veg, Eggless, Vegan).
+- **Self-Ordering:** Diners can place orders directly from their tables, reducing waiter dependency and eliminating order delays during peak rushes.
+
+### D. Multi-Kitchen KOT (Kitchen Order Ticket) Routing
+- **Automated KOT Printing:** Orders punched from waiter tablets, cashier counters, or customer QR menus automatically print in the kitchen.
+- **Split Station Routing:** Food items automatically route to the kitchen thermal printer, while beverage orders route to the bar or barista printer.
+- **Kitchen Display System (KDS):** Digital KOT management on kitchen Android tablets.
+
+### E. Business Accounting, Daily Khata & Expense Management
+- **Daily Sales & Petty Cash:** Real-time tracking of daily gross revenue, payment method breakdown (Cash vs. UPI vs. Card), and cash drawer balancing.
+- **Customer Ledger (Khata / Udhar):** Maintain digital customer credit records with automated WhatsApp payment reminder links.
+- **Expense Tracking:** Log vendor payments, ingredient purchases, staff wages, utilities, and rent to calculate net daily/monthly profit margins.
+- **Live Owner Smartphone Dashboard:** Monitor live restaurant sales, top-selling dishes, table occupancy, and inventory from anywhere on iOS or Android.
+
+### F. Inventory, Recipe & Ingredient Stock ERP
+- **Recipe Management:** Automatically deducts raw ingredients (e.g. coffee beans, milk, chicken, cheese, flour) when items are billed.
+- **Variant Pricing:** Full support for multi-variant items by weight (0.5 kg, 1 kg), size (Small, Medium, Large), or custom beverage modifiers (Oat Milk, Syrups, Sugar level).
+- **Low Stock & Expiry Alerts:** Instant alerts before ingredients run out or perishable bakery items expire.
+
+---
+
+## 3. Industry Solutions & Deep Application Guides
+
+- **Fine Dining & Resto-Bars (https://www.cafeqr.in/pos-for-restaurants/):**
+  Visual floorplan table management, table merging/transfer, item-level split billing, multi-kitchen KOT printing, and GST invoices.
+- **Cafes, Coffee Shops & QSRs (https://www.cafeqr.in/pos-for-cafes/):**
+  Rapid counter billing, beverage modifier engine (syrups, dairy choices), combo pairings, and table QR code menus.
+- **Bakeries, Cake Studios & Confectioneries (https://www.cafeqr.in/pos-for-bakeries/):**
+  Advance custom cake booking calendar with pickup date/time, design notes, token deposits, weight-based pricing, and ingredient shelf-life alerts.
+- **Food Trucks, Pop-ups & Night Markets (https://www.cafeqr.in/pos-for-food-trucks/):**
+  Ultra-portable pocket battery thermal printer, 100% offline billing mode, high-contrast token numbers, and zero cabling requirements.
+- **Bluetooth Thermal Printer Setup Guide (https://www.cafeqr.in/bluetooth-thermal-printer-billing/):**
+  Universal ESC/POS hardware guide for 58mm (2-inch) and 80mm (3-inch) wireless Bluetooth, USB, and WiFi thermal receipt printers.
+- **Retail, Grocery & Supermarkets:**
+  Barcode scanning support, loose grain/vegetable weight pricing, fast retail billing, and supplier purchase orders.
+- **Authoritative POS Billing Guide (https://www.cafeqr.in/blog/best-pos-billing-software-2026/):**
+  In-depth benchmark on selecting modern POS and accounting software in 2026.
+
+---
+
+## 4. Hardware Bundles & Transparent Pricing
+
+CafeQR provides affordable, transparent pricing with no hidden monthly fees or proprietary hardware lock-in:
+
+| Package | Price | Included Hardware | Best For |
+| :--- | :--- | :--- | :--- |
+| **Starter Kit** | **₹4,999 complete** | Portable Hoin 58mm (2-inch) Bluetooth Battery Thermal Printer + 1-Year Core POS Software License | Tea stalls, juice bars, food trucks, mobile pop-ups, small takeaway counters |
+| **Pro Kit** | **₹7,999 complete** | Heavy-duty SHREYANS 80mm (3-inch) Desktop Bluetooth Printer with Auto-Cutter + 1-Year Core POS Software License | Restaurants, cafes, busy bakeries, supermarkets, high-volume retail |
+| **Software Only** | **₹2,499 / year** | 1-Year Core POS Software License (Works with any existing ESC/POS printer; standard annual renewal ₹999/year) | Businesses that already own an Android device and Bluetooth/USB thermal printer |
+
+*All plans include free menu digitization, full remote onboarding, staff training, and ongoing technical support.*
+
+---
+
+## 5. Why Businesses Choose CafeQR Over Competitors
+
+- **Vs. Petpooja / Posist (Restroworks):** CafeQR does not charge exorbitant annual fees (₹15,000–₹35,000+). CafeQR starts at just ₹2,499/year or ₹4,999 with printer, runs on any Android phone, and includes a free zero-commission delivery website.
+- **Vs. Vyapar / Generic Accounting Apps:** Generic billing apps lack restaurant-specific essentials like Kitchen KOT printing, visual table floorplans, recipe ingredient deductions, and QR dine-in ordering.
+- **Vs. Swiggy & Zomato:** Aggregators charge 25–35% commission on every order and withhold customer data. CafeQR provides a direct, branded online ordering website with 0% commission where the business keeps 100% profit and customer phone numbers for WhatsApp marketing.
+- **Vs. Old Mechanical Billing Machines:** Standalone billing machines have tiny numerical keypads, break frequently, require manual paper Z-reports, and cannot sync to an owner's smartphone. CafeQR provides cloud reports, instant menu changes, and full touch operation.
+
+---
+
+## 6. Frequently Asked Questions (FAQ)
+
+### Can I run CafeQR on my existing Android smartphone or tablet?
+Yes. CafeQR runs smoothly on any Android smartphone, Android tablet, iPad, or Windows touch terminal. You do not need to purchase expensive proprietary POS terminals.
+
+### Which thermal printers are supported?
+CafeQR uses universal ESC/POS protocol and supports all standard 58mm (2-inch) and 80mm (3-inch) Bluetooth, USB, WiFi, and Ethernet thermal printers, including brands like Hoin, Shreyans, Everycom, TVS, Epson, Star Micronics, NGX, and POSIFLEX.
+
+### How does the offline billing mode work?
+If your internet or WiFi disconnects during busy hours, CafeQR continues to punch orders, calculate totals, and print thermal receipts without interruption. As soon as connectivity returns, all sales, payments, and inventory adjustments automatically synchronize to the cloud ERP.
+
+### Can customers pay directly using UPI QR codes?
+Yes. CafeQR can print dynamic UPI QR codes directly on the thermal bill or show them on the cashier screen. Customers scan using Google Pay, PhonePe, Paytm, or BHIM for immediate payment.
+
+### How do I get started with a live demo?
+Business owners can connect directly on WhatsApp at **+91 7012120844** (https://wa.me/917012120844) to get a free 5-minute interactive live demo. The CafeQR support team sets up your full menu and tax details for free within 30 minutes.
+
+---
+
+## 7. Contact & Official Resources
+- **Official Website:** https://www.cafeqr.in/
+- **Direct WhatsApp Demo & Support:** +91 7012120844 (https://wa.me/917012120844)
+- **Google Verified Reviews:** https://g.page/r/CbYBpqFk3xOFEBM/review (5.0★ Verified Rating • 29 Google Reviews)
+- **Google Preferred Source:** https://www.google.com/preferences/source?q=cafeqr.in
+- **POS Web App Login:** https://cafeqr-frontend.pages.dev/login/
+- **Google Play Store App:** https://play.google.com/store/apps/details?id=com.cafeqr.app
+- **Delivery Fleet Driver App:** https://play.google.com/store/apps/details?id=com.cafeqr.delivery

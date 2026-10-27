@@ -14,11 +14,32 @@ import {
   Truck,
   Check,
   Star,
-  Shield
+  Shield,
+  Banknote,
+  QrCode,
+  CreditCard,
+  RotateCcw,
+  Loader2,
+  Package,
+  Settings2,
+  Receipt,
+  BatteryMedium,
+  Sparkles,
+  Coffee,
+  Cake,
+  FileText,
+  LogIn,
+  HelpCircle,
+  Mail,
+  Phone,
 } from 'lucide-react';
 import CheckoutModal from './components/CheckoutModal';
 import FAQ from './components/FAQ';
 import Terms from './pages/Terms';
+import GooglePreferredSourceBanner from './components/GooglePreferredSourceBanner';
+import GoogleReviewsSection from './components/GoogleReviewsSection';
+import ContactDemoSection from './components/ContactDemoSection';
+import FloatingWhatsApp from './components/FloatingWhatsApp';
 
 // ── Pricing Plans ─────────────────────────────────────────────────────────────
 
@@ -131,6 +152,28 @@ function App() {
   const [backendApiUrl, setBackendApiUrl] = useState<string>('https://api.cafeqr.in');
   const [checkoutPlan, setCheckoutPlan] = useState<PricingPlan | null>(null);
 
+  // POS V2 Settle Order & Print Simulation State
+  const [showSettleModal, setShowSettleModal] = useState<boolean>(false);
+  const [settleMethod, setSettleMethod] = useState<'CASH' | 'UPI' | 'CARD'>('UPI');
+  const [isPrinting, setIsPrinting] = useState<boolean>(false);
+  const [receiptEjected, setReceiptEjected] = useState<boolean>(false);
+
+  const handleSettleOrder = () => {
+    setIsPrinting(true);
+    setTimeout(() => {
+      setIsPrinting(false);
+      setShowSettleModal(false);
+      setReceiptEjected(true);
+    }, 550);
+  };
+
+  const resetSimulator = () => {
+    setShowSettleModal(false);
+    setReceiptEjected(false);
+    setIsPrinting(false);
+    setSettleMethod('UPI');
+  };
+
   useEffect(() => {
     setPosLoginUrl(getPosLoginUrl());
     setBackendApiUrl(getBackendApiUrl());
@@ -198,13 +241,34 @@ function App() {
   return (
     <div className="relative min-h-screen bg-zinc-50 text-zinc-900 overflow-hidden font-sans">
 
+      {/* Google Preferred Source Banner */}
+      <GooglePreferredSourceBanner />
+
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center p-5 lg:px-8 bg-white/50 backdrop-blur-2xl border-b border-white/40 shadow-[0_4px_30px_rgba(0,0,0,0.02)]">
+      <nav className="sticky top-0 left-0 right-0 z-50 flex justify-between items-center p-4 lg:px-8 bg-white/75 backdrop-blur-2xl border-b border-white/40 shadow-[0_4px_30px_rgba(0,0,0,0.02)]">
         <div className="flex items-center gap-3">
           <img src="/logo.png" alt="Cafe QR Logo" className="w-10 h-10 object-contain rounded-md" />
           <span className="text-xl font-bold tracking-tight text-zinc-900">Cafe QR ERP</span>
         </div>
-        <div className="flex items-center gap-6">
+
+        {/* Desktop Navigation Anchors */}
+        <div className="hidden md:flex items-center gap-6 text-sm font-semibold text-zinc-600">
+          <a href="#how-it-works" className="hover:text-primary transition-colors">How It Works</a>
+          <a href="#pricing" className="hover:text-primary transition-colors">Pricing</a>
+          <a href="#features" className="hover:text-primary transition-colors">Features</a>
+          <a href="#apps" className="hover:text-primary transition-colors">Live Demo</a>
+          <a href="#reviews" className="hover:text-primary transition-colors">Reviews</a>
+          <a href="#contact-demo" className="hover:text-primary transition-colors text-primary font-bold">Book Demo</a>
+          <a href="#faq" className="hover:text-primary transition-colors">FAQ</a>
+        </div>
+
+        <div className="flex items-center gap-4">
+          <a
+            href="#contact-demo"
+            className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 text-xs font-bold text-zinc-900 bg-zinc-100 hover:bg-zinc-200/90 rounded-full border border-zinc-200 transition-colors"
+          >
+            Request Live Demo
+          </a>
           <a
             href={posLoginUrl}
             className="px-6 py-2.5 bg-zinc-900/90 backdrop-blur-md text-white rounded-full font-semibold hover:bg-zinc-800 transition-colors shadow-lg text-sm"
@@ -215,15 +279,18 @@ function App() {
       </nav>
 
       {/* ── Hero Section ───────────────────────────────────────────── */}
-      <section className="relative min-h-[100vh] flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 pt-20">
+      <section className="relative min-h-[90vh] flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 pt-12 pb-16">
         <div className="relative z-10 text-center max-w-4xl mx-auto pointer-events-none select-none flex flex-col items-center">
+
+
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-6 px-4 py-1.5 bg-white/70 backdrop-blur-md border border-white/50 shadow-sm rounded-full text-xs font-bold uppercase tracking-wider text-primary"
+            className="mb-6 px-4 py-1.5 bg-white/70 backdrop-blur-md border border-white/50 shadow-sm rounded-full text-xs font-bold uppercase tracking-wider text-primary flex items-center gap-1.5"
           >
-            ✦ Complete POS Kit — Software + Printer
+            <Sparkles className="w-3.5 h-3.5 text-primary fill-primary" />
+            <span>Complete POS Kit — Software + Printer</span>
           </motion.div>
 
           <motion.h1
@@ -249,26 +316,27 @@ function App() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-            className="mt-10 flex flex-col sm:flex-row gap-4 pointer-events-auto"
+            className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3.5 pointer-events-auto w-full max-w-md mx-auto"
           >
             <a
-              href="#pricing"
-              className="px-8 py-4 bg-primary text-white rounded-full font-bold flex items-center justify-center gap-2 hover:bg-orange-600 transition-all shadow-xl shadow-orange-500/20 hover:shadow-orange-500/30 cursor-pointer"
+              href="#contact-demo"
+              className="w-full sm:w-auto px-7 py-4 bg-primary hover:bg-orange-600 text-white rounded-full font-bold flex items-center justify-center gap-2 shadow-xl shadow-orange-500/25 hover:shadow-orange-500/35 transition-all text-sm cursor-pointer"
             >
-              See Pricing <ChevronRight className="w-4 h-4" />
+              <span>Request Free Live Demo</span>
+              <ChevronRight className="w-4 h-4" />
             </a>
             <a
-              href={posLoginUrl}
-              className="px-8 py-4 bg-white border border-zinc-200 text-zinc-700 rounded-full font-bold flex items-center justify-center gap-2 hover:bg-zinc-50 transition-all shadow-sm cursor-pointer"
+              href="#pricing"
+              className="w-full sm:w-auto px-7 py-4 bg-white hover:bg-zinc-100 text-zinc-900 border border-zinc-200/90 rounded-full font-bold flex items-center justify-center gap-2 transition-all shadow-sm text-sm cursor-pointer"
             >
-              Already a user? Login
+              See Pricing & Kits
             </a>
           </motion.div>
         </div>
       </section>
 
       {/* ── How It Works ───────────────────────────────────────────── */}
-      <section className="py-32 px-4 sm:px-6 lg:px-8 border-t border-white/20">
+      <section id="how-it-works" className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 border-t border-white/20">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-zinc-900">
@@ -279,9 +347,9 @@ function App() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { step: '01', title: 'Choose Your Kit', desc: 'Pick a Starter or Pro kit with a Bluetooth printer, or get software only if you already have one.', icon: '📦' },
-              { step: '02', title: 'We Set You Up', desc: 'Our team configures your menu, categories, and POS settings. You just share your details.', icon: '⚙️' },
-              { step: '03', title: 'Start Billing', desc: "Install the app, connect your printer, and start taking orders. It's that simple.", icon: '🧾' },
+              { step: '01', title: 'Choose Your Kit', desc: 'Pick a Starter or Pro kit with a Bluetooth printer, or get software only if you already have one.', icon: Package },
+              { step: '02', title: 'We Set You Up', desc: 'Our team configures your menu, categories, and POS settings. You just share your details.', icon: Settings2 },
+              { step: '03', title: 'Start Billing', desc: "Install the app, connect your printer, and start taking orders. It's that simple.", icon: Receipt },
             ].map((s, i) => (
               <motion.div
                 key={i}
@@ -291,7 +359,9 @@ function App() {
                 transition={{ duration: 0.5, delay: i * 0.15 }}
                 className="relative p-8 rounded-[2rem] bg-white/60 backdrop-blur-xl border border-white/60 shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:bg-white/80 transition-all text-center"
               >
-                <span className="text-4xl mb-4 block">{s.icon}</span>
+                <div className="w-14 h-14 mx-auto mb-5 rounded-2xl bg-orange-50 border border-orange-100/80 flex items-center justify-center text-primary shadow-xs">
+                  <s.icon className="w-6 h-6 stroke-[1.8]" />
+                </div>
                 <span className="text-xs font-bold text-primary uppercase tracking-widest">Step {s.step}</span>
                 <h3 className="text-xl font-bold text-zinc-900 mt-2 mb-2">{s.title}</h3>
                 <p className="text-zinc-600 text-sm leading-relaxed">{s.desc}</p>
@@ -302,7 +372,7 @@ function App() {
       </section>
 
       {/* ── Pricing Bundles ────────────────────────────────────────── */}
-      <section id="pricing" className="py-32 px-4 sm:px-6 lg:px-8 border-t border-white/20">
+      <section id="pricing" className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 border-t border-white/20">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-zinc-900">
@@ -321,11 +391,10 @@ function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className={`relative p-8 rounded-[2rem] border backdrop-blur-xl flex flex-col transition-all ${
-                  plan.highlight
+                className={`relative p-8 rounded-[2rem] border backdrop-blur-xl flex flex-col transition-all ${plan.highlight
                     ? 'bg-zinc-900/90 border-zinc-700/50 text-white shadow-2xl scale-[1.03] ring-2 ring-primary/30'
                     : 'bg-white/70 border-white/60 shadow-[0_8px_30px_rgba(0,0,0,0.04)]'
-                }`}
+                  }`}
               >
                 {/* Badge */}
                 {plan.badge && (
@@ -347,7 +416,7 @@ function App() {
                         if (parent && !parent.querySelector('.printer-fallback')) {
                           const div = document.createElement('div');
                           div.className = 'printer-fallback flex flex-col items-center justify-center text-center p-4';
-                          div.innerHTML = `<span class="text-4xl">🖨️</span><span class="text-xs font-bold mt-2 ${plan.highlight ? 'text-zinc-300' : 'text-zinc-600'}">${plan.printer}</span>`;
+                          div.innerHTML = `<span class="text-xs font-bold ${plan.highlight ? 'text-zinc-300' : 'text-zinc-600'}">${plan.printer}</span>`;
                           parent.appendChild(div);
                         }
                       }}
@@ -365,7 +434,7 @@ function App() {
                         if (parent && !parent.querySelector('.software-fallback')) {
                           const div = document.createElement('div');
                           div.className = 'software-fallback flex flex-col items-center justify-center text-center';
-                          div.innerHTML = `<span class="text-4xl">📱</span>`;
+                          div.innerHTML = `<span class="text-xs font-bold text-zinc-400">Software License Only</span>`;
                           parent.insertBefore(div, parent.firstChild);
                         }
                       }}
@@ -407,11 +476,10 @@ function App() {
                 {/* CTA */}
                 <button
                   onClick={() => setCheckoutPlan(plan)}
-                  className={`w-full py-4 rounded-xl font-bold text-sm transition-all ${
-                    plan.highlight
+                  className={`w-full py-4 rounded-xl font-bold text-sm transition-all ${plan.highlight
                       ? 'bg-primary text-white hover:bg-orange-600 shadow-lg shadow-orange-500/30'
                       : 'bg-zinc-900 text-white hover:bg-zinc-800 shadow-md'
-                  }`}
+                    }`}
                 >
                   Get Started
                 </button>
@@ -430,7 +498,7 @@ function App() {
       </section>
 
       {/* ── Key Features Grid ──────────────────────────────────────── */}
-      <section className="py-32 px-4 sm:px-6 lg:px-8 border-t border-white/20">
+      <section id="features" className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 border-t border-white/20">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-zinc-900">
@@ -463,7 +531,7 @@ function App() {
       </section>
 
       {/* ── Play Store Apps Section ────────────────────────────────── */}
-      <section id="apps" className="py-32 px-4 sm:px-6 lg:px-8 border-t border-white/20">
+      <section id="apps" className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 border-t border-white/20">
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
@@ -478,11 +546,10 @@ function App() {
                 {/* POS App Card */}
                 <div
                   onClick={() => setActiveApp('pos')}
-                  className={`flex gap-5 items-start p-6 rounded-3xl border transition-all duration-300 cursor-pointer select-none ${
-                    activeApp === 'pos'
+                  className={`flex gap-5 items-start p-6 rounded-3xl border transition-all duration-300 cursor-pointer select-none ${activeApp === 'pos'
                       ? 'bg-white/95 border-primary/40 shadow-[0_8px_30px_rgba(0,0,0,0.06)] scale-[1.02]'
                       : 'bg-white/10 border-transparent hover:bg-white/40'
-                  }`}
+                    }`}
                 >
                   <img src="/logo-pos.png" alt="POS App Logo" className="w-16 h-16 object-contain bg-white rounded-2xl shadow-sm border border-zinc-200 p-1 shrink-0" />
                   <div className="flex-1">
@@ -506,11 +573,10 @@ function App() {
                 {/* Delivery App Card */}
                 <div
                   onClick={() => setActiveApp('delivery')}
-                  className={`flex gap-5 items-start p-6 rounded-3xl border transition-all duration-300 cursor-pointer select-none ${
-                    activeApp === 'delivery'
+                  className={`flex gap-5 items-start p-6 rounded-3xl border transition-all duration-300 cursor-pointer select-none ${activeApp === 'delivery'
                       ? 'bg-white/95 border-primary/40 shadow-[0_8px_30px_rgba(0,0,0,0.06)] scale-[1.02]'
                       : 'bg-white/10 border-transparent hover:bg-white/40'
-                  }`}
+                    }`}
                 >
                   <img src="/logo-delivery.png" alt="Delivery App Logo" className="w-16 h-16 object-contain bg-white rounded-2xl shadow-sm border border-zinc-200 p-1 shrink-0" />
                   <div className="flex-1">
@@ -552,42 +618,236 @@ function App() {
                     <span className="text-white">11:40 AM</span>
                     <div className="flex gap-1.5 text-white items-center">
                       <Wifi className="w-3 h-3" />
-                      <span>🔋</span>
+                      <BatteryMedium className="w-3.5 h-3.5 text-white stroke-[2]" />
                     </div>
                   </div>
 
                   <div className="flex-1 w-full bg-zinc-50 flex flex-col justify-between p-4 pt-8 overflow-hidden relative">
                     <AnimatePresence mode="wait">
                       {activeApp === 'pos' ? (
-                        <motion.div key="pos-screen" initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 30 }} transition={{ duration: 0.25, ease: "easeInOut" }} className="w-full h-full flex flex-col justify-between pt-4">
-                          <div>
-                            <div className="flex items-center gap-3 mb-6 bg-white p-3 rounded-2xl border border-zinc-200/50 shadow-sm">
-                              <img src="/logo-pos.png" alt="POS App Logo" className="w-10 h-10 object-contain" />
-                              <div>
-                                <h5 className="font-extrabold text-zinc-900 text-sm leading-tight">Cafe QR POS</h5>
-                                <span className="inline-flex items-center gap-1.5 text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full mt-0.5 border border-emerald-100">
-                                  <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
-                                  ERP Sync Active
-                                </span>
+                        receiptEjected ? (
+                          <motion.div
+                            key="pos-receipt"
+                            initial={{ opacity: 0, y: -20, scale: 0.95 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.95 }}
+                            transition={{ type: "spring", stiffness: 280, damping: 22 }}
+                            className="w-full h-full flex flex-col justify-between pt-2 pb-1"
+                          >
+                            <div className="bg-amber-50/70 rounded-xl p-2.5 border border-amber-200/90 shadow-md font-mono text-zinc-800 text-[9px] leading-tight flex-1 overflow-y-auto">
+                              <div className="text-center border-b border-dashed border-zinc-400 pb-1.5 mb-1.5">
+                                <div className="font-extrabold text-[11px] text-zinc-900 tracking-wider">CAFE QR RESTAURANT</div>
+                                <div className="text-[8px] text-zinc-500">GSTIN: 32AABCU9603R1ZM</div>
+                                <div className="text-[7.5px] text-zinc-400 mt-0.5">Bill: #1042 • Table: 04 • POS V2</div>
+                              </div>
+                              <div className="space-y-1 py-1">
+                                <div className="flex justify-between font-semibold">
+                                  <span>2x Cappuccino</span>
+                                  <span>₹360.00</span>
+                                </div>
+                                <div className="flex justify-between font-semibold">
+                                  <span>1x Paneer Tikka</span>
+                                  <span>₹150.00</span>
+                                </div>
+                                <div className="flex justify-between font-semibold">
+                                  <span>1x Choco Lava</span>
+                                  <span>₹90.00</span>
+                                </div>
+                              </div>
+                              <div className="border-t border-dashed border-zinc-400 my-1 pt-1 space-y-0.5 text-[8px] text-zinc-600">
+                                <div className="flex justify-between">
+                                  <span>Subtotal</span>
+                                  <span>₹571.43</span>
+                                </div>
+                                <div className="flex justify-between">
+                                  <span>CGST (2.5%)</span>
+                                  <span>₹14.28</span>
+                                </div>
+                                <div className="flex justify-between">
+                                  <span>SGST (2.5%)</span>
+                                  <span>₹14.28</span>
+                                </div>
+                              </div>
+                              <div className="border-t-2 border-zinc-900 my-1 pt-1 flex justify-between font-extrabold text-[11px] text-zinc-900">
+                                <span>TOTAL PAID</span>
+                                <span className="text-emerald-700">₹600.00</span>
+                              </div>
+                              <div className="text-center pt-1.5 text-[7.5px] text-zinc-500 border-t border-dashed border-zinc-300">
+                                <span className="inline-block bg-emerald-100 text-emerald-800 font-bold px-1.5 py-0.2 rounded text-[7.5px] mb-0.5">PAID VIA {settleMethod}</span>
+                                <div>*** Thank You! Visit Again ***</div>
+                                <div className="text-[7px] text-zinc-400">80mm Bluetooth ESC/POS</div>
                               </div>
                             </div>
-                            <div className="space-y-2.5">
-                              <h6 className="text-[10px] font-extrabold text-zinc-400 uppercase tracking-wider px-1">Active Ticket</h6>
-                              <div className="bg-white rounded-2xl p-3.5 border border-zinc-200/50 shadow-sm space-y-3">
-                                <div className="flex justify-between text-xs font-semibold text-zinc-800"><span>2x Cappuccino</span><span className="font-bold text-zinc-900">₹360</span></div>
-                                <div className="flex justify-between text-xs font-semibold text-zinc-800"><span>1x Paneer Tikka Roll</span><span className="font-bold text-zinc-900">₹150</span></div>
-                                <div className="flex justify-between text-xs font-semibold text-zinc-800 border-b border-dashed border-zinc-200 pb-2"><span>1x Choco Lava Cake</span><span className="font-bold text-zinc-900">₹90</span></div>
-                                <div className="flex justify-between text-sm font-bold text-zinc-900 pt-1"><span>Total Amount</span><span className="text-primary font-extrabold text-base">₹600</span></div>
+
+                            <div className="pt-2 space-y-1">
+                              <button
+                                onClick={resetSimulator}
+                                className="w-full py-2 bg-zinc-900 hover:bg-zinc-800 text-white font-bold rounded-xl text-[11px] flex items-center justify-center gap-1.5 shadow transition-colors"
+                              >
+                                <RotateCcw className="w-3.5 h-3.5 text-orange-400" /> Tear Receipt & New Order
+                              </button>
+                              <span className="text-[8px] text-emerald-600 block text-center font-bold">
+                                ✓ Live Inventory & ERP Sync Complete
+                              </span>
+                            </div>
+                          </motion.div>
+                        ) : showSettleModal ? (
+                          <motion.div
+                            key="pos-settle-dialog"
+                            initial={{ opacity: 0, y: 25 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: 25 }}
+                            transition={{ duration: 0.2 }}
+                            className="w-full h-full flex flex-col justify-between pt-2 pb-1 bg-white rounded-2xl p-2.5 shadow-lg border border-zinc-200"
+                          >
+                            <div>
+                              <div className="flex items-center justify-between border-b border-zinc-100 pb-1.5 mb-2">
+                                <div>
+                                  <span className="text-[8px] font-bold text-zinc-400 uppercase tracking-wider">POS V2 Settle Order</span>
+                                  <h5 className="font-extrabold text-zinc-900 text-xs">Table 04 • ₹600.00</h5>
+                                </div>
+                                <button
+                                  onClick={() => setShowSettleModal(false)}
+                                  className="text-zinc-400 hover:text-zinc-700 text-xs font-bold p-1 rounded-md"
+                                >
+                                  ✕
+                                </button>
+                              </div>
+
+                              {/* Payment Method Selector */}
+                              <div className="grid grid-cols-3 gap-1 bg-zinc-100 p-1 rounded-xl mb-2.5">
+                                {(['UPI', 'CASH', 'CARD'] as const).map((method) => (
+                                  <button
+                                    key={method}
+                                    onClick={() => setSettleMethod(method)}
+                                    className={`py-1 text-[9.5px] font-bold rounded-lg transition-all flex items-center justify-center gap-1 ${settleMethod === method
+                                        ? 'bg-white text-zinc-900 shadow-sm'
+                                        : 'text-zinc-500 hover:text-zinc-800'
+                                      }`}
+                                  >
+                                    {method === 'UPI' && <QrCode className="w-2.5 h-2.5 text-primary" />}
+                                    {method === 'CASH' && <Banknote className="w-2.5 h-2.5 text-emerald-600" />}
+                                    {method === 'CARD' && <CreditCard className="w-2.5 h-2.5 text-blue-600" />}
+                                    {method}
+                                  </button>
+                                ))}
+                              </div>
+
+                              {/* Method Details */}
+                              {settleMethod === 'UPI' && (
+                                <div className="bg-orange-50/70 border border-orange-200/60 rounded-xl p-2 flex flex-col items-center text-center">
+                                  <div className="w-16 h-16 bg-white p-1 rounded-lg border border-orange-300 shadow-sm flex items-center justify-center relative">
+                                    <svg viewBox="0 0 100 100" className="w-full h-full text-zinc-900 fill-current">
+                                      <path d="M0,0 h30 v30 h-30 z M10,10 h10 v10 h-10 z" />
+                                      <path d="M70,0 h30 v30 h-30 z M80,10 h10 v10 h-10 z" />
+                                      <path d="M0,70 h30 v30 h-30 z M10,80 h10 v10 h-10 z" />
+                                      <path d="M40,10 h20 v10 h-20 z M40,30 h10 v20 h-10 z M60,40 h30 v10 h-30 z M40,70 h20 v20 h-20 z M70,70 h20 v10 h-20 z M80,90 h10 v10 h-10 z" />
+                                    </svg>
+                                    <div className="absolute inset-0 border-2 border-primary/40 rounded-lg animate-pulse pointer-events-none" />
+                                  </div>
+                                  <span className="text-[8.5px] font-bold text-zinc-800 mt-1.5">Scan with GPay / PhonePe / Paytm</span>
+                                  <span className="text-[7.5px] text-zinc-500">Auto-detects incoming UPI payment webhook</span>
+                                </div>
+                              )}
+
+                              {settleMethod === 'CASH' && (
+                                <div className="bg-emerald-50/70 border border-emerald-200/60 rounded-xl p-2 space-y-1.5">
+                                  <div className="text-[8.5px] font-semibold text-zinc-700">Quick Tender:</div>
+                                  <div className="grid grid-cols-3 gap-1">
+                                    <span className="px-1.5 py-1 bg-white border border-emerald-300 rounded text-[8.5px] font-bold text-center text-emerald-800">₹600 (Exact)</span>
+                                    <span className="px-1.5 py-1 bg-white border border-zinc-200 rounded text-[8.5px] font-bold text-center text-zinc-700">₹1,000</span>
+                                    <span className="px-1.5 py-1 bg-white border border-zinc-200 rounded text-[8.5px] font-bold text-center text-zinc-700">₹2,000</span>
+                                  </div>
+                                  <div className="flex justify-between text-[8.5px] font-bold text-zinc-800 pt-1 border-t border-emerald-200/50">
+                                    <span>Change Return:</span>
+                                    <span className="text-emerald-700 font-extrabold">₹0.00</span>
+                                  </div>
+                                </div>
+                              )}
+
+                              {settleMethod === 'CARD' && (
+                                <div className="bg-blue-50/70 border border-blue-200/60 rounded-xl p-2.5 flex flex-col items-center text-center">
+                                  <CreditCard className="w-7 h-7 text-blue-600 mb-1" />
+                                  <span className="text-[9px] font-bold text-zinc-800">EDC Card Machine</span>
+                                  <span className="text-[7.5px] text-zinc-500">Swipe, Dip or Tap card on POS Terminal</span>
+                                </div>
+                              )}
+                            </div>
+
+                            <div className="space-y-1 pt-1.5">
+                              <button
+                                onClick={handleSettleOrder}
+                                disabled={isPrinting}
+                                className="w-full py-2.5 bg-primary hover:bg-orange-600 disabled:opacity-75 text-white font-bold rounded-xl text-[11px] flex items-center justify-center gap-1.5 shadow-md transition-all"
+                              >
+                                {isPrinting ? (
+                                  <>
+                                    <Loader2 className="w-3 h-3 animate-spin" />
+                                    <span>Printing Thermal Bill...</span>
+                                  </>
+                                ) : (
+                                  <>
+                                    <Printer className="w-3 h-3" />
+                                    <span>Complete & Print Bill (₹600)</span>
+                                  </>
+                                )}
+                              </button>
+                              <span className="text-[7.5px] text-zinc-400 block text-center font-medium">
+                                Sends ESC/POS command to 58mm/80mm printer
+                              </span>
+                            </div>
+                          </motion.div>
+                        ) : (
+                          <motion.div
+                            key="pos-screen"
+                            initial={{ opacity: 0, x: -30 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: 30 }}
+                            transition={{ duration: 0.25, ease: "easeInOut" }}
+                            className="w-full h-full flex flex-col justify-between pt-2 pb-1"
+                          >
+                            <div>
+                              <div className="flex items-center gap-2 mb-2 bg-white p-2 rounded-2xl border border-zinc-200/50 shadow-sm">
+                                <img src="/logo-pos.png" alt="POS App Logo" className="w-8 h-8 object-contain" />
+                                <div className="flex-1 min-w-0">
+                                  <div className="flex items-center justify-between">
+                                    <h5 className="font-extrabold text-zinc-900 text-xs leading-tight">Cafe QR POS V2</h5>
+                                    <span className="text-[8.5px] font-bold text-zinc-500">Table 04</span>
+                                  </div>
+                                  <span className="inline-flex items-center gap-1 text-[8px] font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.2 rounded-full border border-emerald-100">
+                                    <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
+                                    Printer Connected
+                                  </span>
+                                </div>
+                              </div>
+
+                              <div className="space-y-1.5">
+                                <div className="flex justify-between items-center px-1">
+                                  <h6 className="text-[8.5px] font-extrabold text-zinc-400 uppercase tracking-wider">Active Ticket #1042</h6>
+                                  <span className="text-[8px] bg-orange-100 text-primary font-bold px-1.5 py-0.2 rounded">3 Items</span>
+                                </div>
+                                <div className="bg-white rounded-2xl p-2.5 border border-zinc-200/50 shadow-sm space-y-1.5">
+                                  <div className="flex justify-between text-[10.5px] font-semibold text-zinc-800"><span>2x Cappuccino</span><span className="font-bold text-zinc-900">₹360</span></div>
+                                  <div className="flex justify-between text-[10.5px] font-semibold text-zinc-800"><span>1x Paneer Tikka</span><span className="font-bold text-zinc-900">₹150</span></div>
+                                  <div className="flex justify-between text-[10.5px] font-semibold text-zinc-800 border-b border-dashed border-zinc-200 pb-1"><span>1x Choco Lava</span><span className="font-bold text-zinc-900">₹90</span></div>
+                                  <div className="flex justify-between text-xs font-bold text-zinc-900 pt-0.5"><span>Total Due</span><span className="text-primary font-extrabold text-sm">₹600</span></div>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                          <div className="space-y-2.5">
-                            <button className="w-full py-3.5 bg-primary text-white font-bold rounded-xl text-xs flex items-center justify-center gap-2 hover:bg-orange-600 transition-colors shadow-md">
-                              <ShoppingBag className="w-4 h-4" /> Print Bill & Checkout
-                            </button>
-                            <span className="text-[9px] text-zinc-400 block text-center font-semibold">Registered: Terminal Counter #1</span>
-                          </div>
-                        </motion.div>
+
+                            <div className="space-y-1.5 pt-1.5">
+                              <button
+                                onClick={() => setShowSettleModal(true)}
+                                className="w-full py-2.5 bg-primary hover:bg-orange-600 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-md transition-all active:scale-[0.98]"
+                              >
+                                <ShoppingBag className="w-3.5 h-3.5" /> Settle Order (₹600)
+                              </button>
+                              <span className="text-[8px] text-zinc-400 block text-center font-medium">
+                                Tap to test Cash / UPI / Card Settle Flow
+                              </span>
+                            </div>
+                          </motion.div>
+                        )
                       ) : (
                         <motion.div key="delivery-screen" initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -30 }} transition={{ duration: 0.25, ease: "easeInOut" }} className="w-full h-full flex flex-col justify-between pt-4">
                           <div>
@@ -646,41 +906,230 @@ function App() {
         </div>
       </section>
 
+      {/* ── Google Reviews Section ─────────────────────────────────── */}
+      <GoogleReviewsSection />
+
+      {/* ── Contact for Demo Section (Square & Toast Standard) ───────── */}
+      <ContactDemoSection backendApiUrl={backendApiUrl} posLoginUrl={posLoginUrl} />
+
       {/* ── FAQ ────────────────────────────────────────────────────── */}
       <FAQ />
 
       {/* ── Footer ─────────────────────────────────────────────────── */}
-      <footer className="border-t border-white/30 py-12 px-4 text-center text-zinc-500 text-sm bg-white/40 backdrop-blur-xl relative z-10">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-6">
-          <div className="flex items-center gap-3">
-            <img src="/logo.png" alt="Cafe QR Logo" className="w-8 h-8 object-contain rounded-md" />
-            <span className="font-bold text-zinc-900">Cafe QR POS ERP Ecosystem</span>
+      <footer className="border-t border-white/40 pt-16 pb-28 sm:pb-14 px-4 sm:px-6 lg:px-8 text-zinc-600 text-sm bg-white/60 backdrop-blur-xl relative z-10">
+        <div className="max-w-7xl mx-auto">
+          {/* 4-Column Professional B2B SaaS Footer */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-zinc-200/70 text-left">
+            {/* Column 1: Industry Solutions */}
+            <div className="space-y-4">
+              <h4 className="text-xs font-bold text-zinc-900 uppercase tracking-wider">
+                Industry Solutions
+              </h4>
+              <ul className="space-y-2.5 text-xs font-medium">
+                <li>
+                  <a
+                    href="/pos-for-restaurants/"
+                    className="group flex items-center gap-2 text-zinc-600 hover:text-primary transition-colors"
+                  >
+                    <UtensilsCrossed className="w-3.5 h-3.5 text-zinc-400 group-hover:text-primary transition-colors shrink-0" />
+                    <span>Restaurants & Dining</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/pos-for-cafes/"
+                    className="group flex items-center gap-2 text-zinc-600 hover:text-primary transition-colors"
+                  >
+                    <Coffee className="w-3.5 h-3.5 text-zinc-400 group-hover:text-primary transition-colors shrink-0" />
+                    <span>Cafes & Quick Service</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/pos-for-bakeries/"
+                    className="group flex items-center gap-2 text-zinc-600 hover:text-primary transition-colors"
+                  >
+                    <Cake className="w-3.5 h-3.5 text-zinc-400 group-hover:text-primary transition-colors shrink-0" />
+                    <span>Bakeries & Cake Studios</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/pos-for-food-trucks/"
+                    className="group flex items-center gap-2 text-zinc-600 hover:text-primary transition-colors"
+                  >
+                    <Truck className="w-3.5 h-3.5 text-zinc-400 group-hover:text-primary transition-colors shrink-0" />
+                    <span>Food Trucks & Kiosks</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#pricing"
+                    className="group flex items-center gap-2 text-zinc-600 hover:text-primary transition-colors"
+                  >
+                    <Sparkles className="w-3.5 h-3.5 text-zinc-400 group-hover:text-primary transition-colors shrink-0" />
+                    <span>Retail & Specialty Billing</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Column 2: Hardware & Kits */}
+            <div className="space-y-4">
+              <h4 className="text-xs font-bold text-zinc-900 uppercase tracking-wider">
+                Hardware & Kits
+              </h4>
+              <ul className="space-y-2.5 text-xs font-medium">
+                <li>
+                  <a
+                    href="#pricing"
+                    className="group flex items-center gap-2 text-zinc-600 hover:text-primary transition-colors"
+                  >
+                    <Printer className="w-3.5 h-3.5 text-zinc-400 group-hover:text-primary transition-colors shrink-0" />
+                    <span>Starter 58mm Thermal Kit</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#pricing"
+                    className="group flex items-center gap-2 text-zinc-600 hover:text-primary transition-colors"
+                  >
+                    <Printer className="w-3.5 h-3.5 text-zinc-400 group-hover:text-primary transition-colors shrink-0" />
+                    <span>Pro 80mm High-Speed Kit</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#pricing"
+                    className="group flex items-center gap-2 text-zinc-600 hover:text-primary transition-colors"
+                  >
+                    <Smartphone className="w-3.5 h-3.5 text-zinc-400 group-hover:text-primary transition-colors shrink-0" />
+                    <span>Software Only License</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/bluetooth-thermal-printer-billing/"
+                    className="group flex items-center gap-2 text-zinc-600 hover:text-primary transition-colors"
+                  >
+                    <FileText className="w-3.5 h-3.5 text-zinc-400 group-hover:text-primary transition-colors shrink-0" />
+                    <span>Thermal Printer Guide</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Column 3: Resources & Trust */}
+            <div className="space-y-4">
+              <h4 className="text-xs font-bold text-zinc-900 uppercase tracking-wider">
+                Resources & Portals
+              </h4>
+              <ul className="space-y-2.5 text-xs font-medium">
+                <li>
+                  <a
+                    href="#reviews"
+                    className="group flex items-center gap-2 text-zinc-600 hover:text-primary transition-colors"
+                  >
+                    <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-500 shrink-0" />
+                    <span>5.0★ Google Verified Reviews</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/blog/best-pos-billing-software-2026/"
+                    className="group flex items-center gap-2 text-zinc-600 hover:text-primary transition-colors"
+                  >
+                    <FileText className="w-3.5 h-3.5 text-zinc-400 group-hover:text-primary transition-colors shrink-0" />
+                    <span>Best POS Software 2026</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={typeof window !== 'undefined' && (window.location.hostname.includes('test') || window.location.hostname.includes('localhost')) ? 'https://cafe-test-qr-frontend.vercel.app/login' : 'https://cafeqr-frontend.pages.dev/login/'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center gap-2 text-zinc-600 hover:text-primary transition-colors"
+                  >
+                    <LogIn className="w-3.5 h-3.5 text-zinc-400 group-hover:text-primary transition-colors shrink-0" />
+                    <span>POS Cloud Merchant Login</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#faq"
+                    className="group flex items-center gap-2 text-zinc-600 hover:text-primary transition-colors"
+                  >
+                    <HelpCircle className="w-3.5 h-3.5 text-zinc-400 group-hover:text-primary transition-colors shrink-0" />
+                    <span>Frequently Asked Questions</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Column 4: Support & Legal */}
+            <div className="space-y-4">
+              <h4 className="text-xs font-bold text-zinc-900 uppercase tracking-wider">
+                Direct Support & Legal
+              </h4>
+              <ul className="space-y-2.5 text-xs font-medium">
+                <li>
+                  <a
+                    href="tel:+917012120844"
+                    className="group flex items-center gap-2 text-zinc-600 hover:text-primary transition-colors"
+                  >
+                    <Phone className="w-3.5 h-3.5 text-zinc-400 group-hover:text-primary transition-colors shrink-0" />
+                    <span>+91 70121 20844</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="mailto:support@cafeqr.in"
+                    className="group flex items-center gap-2 text-zinc-600 hover:text-primary transition-colors"
+                  >
+                    <Mail className="w-3.5 h-3.5 text-zinc-400 group-hover:text-primary transition-colors shrink-0" />
+                    <span>support@cafeqr.in</span>
+                  </a>
+                </li>
+                <li className="flex items-center gap-2 text-zinc-500">
+                  <MapPin className="w-3.5 h-3.5 text-zinc-400 shrink-0" />
+                  <span>Thrissur, Kerala, India</span>
+                </li>
+                <li>
+                  <a
+                    href="#terms"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.location.hash = 'terms';
+                      setCurrentView('terms');
+                      window.scrollTo(0, 0);
+                    }}
+                    className="group flex items-center gap-2 text-zinc-600 hover:text-primary transition-colors"
+                  >
+                    <Shield className="w-3.5 h-3.5 text-zinc-400 group-hover:text-primary transition-colors shrink-0" />
+                    <span>Terms & Refund Policy</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
-          <div className="flex items-center gap-4">
-            <a
-              href="/blog/best-pos-billing-software-2026/"
-              className="text-zinc-500 hover:text-zinc-700 font-medium transition-colors cursor-pointer"
-            >
-              Read our Blog
-            </a>
-            <span className="text-zinc-300">•</span>
-            <a
-              href="#terms"
-              onClick={(e) => {
-                e.preventDefault();
-                window.location.hash = 'terms';
-                setCurrentView('terms');
-                window.scrollTo(0, 0);
-              }}
-              className="text-zinc-500 hover:text-zinc-700 font-medium transition-colors cursor-pointer"
-            >
-              Terms & Conditions
-            </a>
-            <span className="text-zinc-300">•</span>
-            <p>© {new Date().getFullYear()} Cafe QR. All rights reserved.</p>
+
+          {/* Sub-Footer / Copyright */}
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-8 text-xs text-zinc-500">
+            <div className="flex items-center gap-2.5">
+              <img src="/logo.png" alt="Cafe QR Logo" className="w-7 h-7 object-contain rounded-md" />
+              <span className="font-bold text-zinc-800 text-sm">Cafe QR POS System</span>
+            </div>
+            <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-zinc-500">
+              <span>© {new Date().getFullYear()} Cafe QR. All rights reserved.</span>
+              <span className="text-zinc-300 hidden sm:inline">•</span>
+              <span className="text-zinc-400">Made for Growing Businesses in India</span>
+            </div>
           </div>
         </div>
       </footer>
+
+      {/* ── Sticky Responsive WhatsApp Floating Action Button ───────── */}
+      <FloatingWhatsApp />
 
       {/* ── Checkout Modal ─────────────────────────────────────────── */}
       {checkoutPlan && (

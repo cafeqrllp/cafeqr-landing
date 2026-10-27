@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, MapPin, User, Phone, Mail, Check, AlertCircle, Loader2 } from 'lucide-react';
+import { X, MapPin, User, Phone, Mail, Check, AlertCircle, Loader2, Package } from 'lucide-react';
 
 interface PricingPlan {
   id: string;
@@ -234,12 +234,16 @@ export default function CheckoutModal({ plan, onClose, backendApiUrl }: Checkout
                 Your order <strong className="text-zinc-900">{orderId}</strong> is confirmed and your <strong>1-Year CafeQR POS account is active</strong>.
               </p>
               <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-3.5 text-xs text-emerald-900 text-left w-full space-y-1.5">
-                <p><strong>📧 Account Credentials:</strong> We've emailed your POS login credentials to <strong>{form.email}</strong>.</p>
+                <p className="flex items-center gap-1.5">
+                  <Mail className="w-3.5 h-3.5 text-emerald-700 shrink-0" />
+                  <span><strong>Account Credentials:</strong> We've emailed your POS login credentials to <strong>{form.email}</strong>.</span>
+                </p>
                 <p className="text-[11px] text-emerald-700">Our onboarding specialist will reach out to <strong>{form.phone}</strong> for setup guidance.</p>
               </div>
               {plan.printer && (
-                <div className="bg-amber-50 border border-amber-200 rounded-xl p-3 text-xs text-amber-800 w-full text-center">
-                  📦 Estimated printer dispatch: <strong>3-5 business days</strong> (Free Shipping)
+                <div className="bg-amber-50 border border-amber-200 rounded-xl p-3 text-xs text-amber-800 w-full text-center flex items-center justify-center gap-1.5">
+                  <Package className="w-3.5 h-3.5 text-amber-700 shrink-0" />
+                  <span>Estimated printer dispatch: <strong>3-5 business days</strong> (Free Shipping)</span>
                 </div>
               )}
               <a
