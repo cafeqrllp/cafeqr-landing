@@ -1,0 +1,8 @@
+/login    https://cafeqr-frontend.pages.dev/login/   301
+/login/   https://cafeqr-frontend.pages.dev/login/   301
+/signup   https://wa.me/917012120844?text=Hi%20CafeQR!%20I%20want%20to%20get%20started%20with%20CafeQR%20POS.  301
+/signup/  https://wa.me/917012120844?text=Hi%20CafeQR!%20I%20want%20to%20get%20started%20with%20CafeQR%20POS.  301
+/faq      /#faq                                      301
+/faq/     /#faq                                      301
+/features /#features                                 301
+/*        /index.html                                200

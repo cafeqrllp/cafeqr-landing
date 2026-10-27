@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Fast Cafe POS & Billing Software with QR Menu Ordering | CafeQR</title>
+  <meta name="description" content="All-in-one Cafe POS and billing system for coffee shops, juice bars, and quick-service cafes. Rapid counter checkout, custom beverage modifiers, contactless QR menus, and Bluetooth receipt printing.">
+  <meta name="keywords" content="cafe POS software, coffee shop billing machine, cafe billing software, QR menu ordering, quick service restaurant POS, CafeQR">
+  <link rel="canonical" href="https://www.cafeqr.in/pos-for-cafes/">
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CafeQR POS ERP">
+  <meta property="og:url" content="https://www.cafeqr.in/pos-for-cafes/">
+  <meta property="og:title" content="Fast Cafe POS & Billing Software with QR Menu Ordering | CafeQR">
+  <meta property="og:description" content="Settle orders in 3 seconds, manage drink modifiers, empower table QR ordering, and print Bluetooth receipts with CafeQR.">
+  <meta property="og:image" content="https://www.cafeqr.in/logo.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Apple Safari & Mobile -->
+  <link rel="apple-touch-icon" href="/logo.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="CafeQR Cafe POS">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" href="/logo.png">
+
+  <!-- Structured Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "CafeQR Cafe POS Software",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Android, Web, Windows, iOS",
+        "offers": {
+          "@type": "Offer",
+          "price": "2499",
+          "priceCurrency": "INR",
+          "availability": "https://schema.org/InStock"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "reviewCount": "29",
+          "bestRating": "5"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.cafeqr.in/" },
+          { "@type": "ListItem", "position": 2, "name": "POS for Cafes", "item": "https://www.cafeqr.in/pos-for-cafes/" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can we run CafeQR on an Android tablet or phone?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! CafeQR runs smoothly on any Android phone, Android tablet, iPad, or touch all-in-one POS terminal. Pair it with our portable Bluetooth printer and your counter is ready to bill."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can we update menu items and prices instantly?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Add new seasonal drinks, change prices, or mark sold-out items with one click. Changes reflect immediately on both counter POS and customer QR menus."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --primary: #F97316;
+      --primary-hover: #EA580C;
+      --zinc-900: #0F172A;
+      --zinc-800: #1E293B;
+      --zinc-600: #475569;
+      --zinc-500: #64748B;
+      --zinc-100: #F1F5F9;
+      --zinc-50: #F8FAFC;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--zinc-900);
+      background-color: var(--zinc-50);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Announcement Banner */
+    .announcement-banner {
+      background: #FFF7ED;
+      border-bottom: 1px solid #FFEDD5;
+      color: #C2410C;
+      text-align: center;
+      padding: 0.5rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .announcement-banner a {
+      color: #EA580C;
+      font-weight: 700;
+      text-decoration: underline;
+      margin-left: 0.5rem;
+    }
+
+    /* Modern B2B Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid #E2E8F0;
+      padding: 0.875rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .logo-box { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; font-weight: 800; font-size: 1.15rem; }
+    .logo-box img { width: 34px; height: 34px; border-radius: 8px; }
+
+    .desktop-nav {
+      display: none;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    @media (min-width: 860px) {
+      .desktop-nav { display: flex; }
+    }
+    .desktop-nav a {
+      text-decoration: none;
+      color: var(--zinc-600);
+      font-size: 0.875rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .desktop-nav a:hover { color: var(--primary); }
+
+    .nav-actions { display: flex; align-items: center; gap: 0.75rem; }
+    .btn-login {
+      display: none;
+      text-decoration: none;
+      color: var(--zinc-800);
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 0.45rem 0.95rem;
+      border-radius: 9999px;
+      border: 1px solid #CBD5E1;
+      transition: all 0.2s;
+    }
+    @media (min-width: 640px) {
+      .btn-login { display: inline-flex; align-items: center; }
+    }
+    .btn-login:hover { background: var(--zinc-100); }
+
+    .btn-demo {
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      padding: 0.5rem 1.15rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.875rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 14px rgba(249, 115, 22, 0.3);
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-demo:hover { background: var(--primary-hover); transform: translateY(-1px); }
+
+    .btn-wa {
+      background: #10B981;
+      color: #fff;
+      text-decoration: none;
+      padding: 0.5rem 1.1rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.875rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-wa:hover { background: #059669; transform: translateY(-1px); }
+
+    /* Hero */
+    .hero {
+      max-width: 1080px;
+      margin: 3rem auto 2.5rem;
+      padding: 0 1.5rem;
+      text-align: center;
+    }
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #FFEDD5;
+      color: #C2410C;
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 9999px;
+      margin-bottom: 1.25rem;
+      border: 1px solid #FED7AA;
+    }
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      font-weight: 900;
+      line-height: 1.15;
+      color: var(--zinc-900);
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+    h1 span { color: var(--primary); }
+    .lead {
+      font-size: 1.125rem;
+      color: var(--zinc-600);
+      max-width: 760px;
+      margin: 0 auto 2rem;
+    }
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 2rem;
+    }
+    .cta-primary {
+      background: var(--primary);
+      color: #fff;
+      padding: 0.875rem 1.75rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 10px 25px -5px rgba(249, 115, 22, 0.35);
+      transition: all 0.2s;
+    }
+    .cta-primary:hover { background: var(--primary-hover); transform: translateY(-1px); }
+    .cta-secondary {
+      background: #fff;
+      color: var(--zinc-900);
+      border: 1px solid #CBD5E1;
+      padding: 0.875rem 1.75rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .cta-secondary:hover { background: var(--zinc-100); }
+
+    .social-proof-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 0.875rem;
+      color: var(--zinc-600);
+      font-weight: 600;
+      margin-bottom: 3.5rem;
+    }
+    .social-proof-bar a {
+      color: inherit;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.2s;
+    }
+    .social-proof-bar a:hover { color: var(--primary); }
+    .proof-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Cards */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1080px;
+      margin: 0 auto 4rem;
+      padding: 0 1.5rem;
+    }
+    .feature-card {
+      background: #fff;
+      border: 1px solid #E2E8F0;
+      border-radius: 1.25rem;
+      padding: 1.75rem;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.03);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .feature-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px -5px rgba(0,0,0,0.06);
+    }
+    .feature-icon-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: #FFF7ED;
+      border: 1px solid #FFEDD5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    .feature-card h3 { font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--zinc-900); }
+    .feature-card p { font-size: 0.925rem; color: var(--zinc-600); line-height: 1.5; }
+
+    /* Comparison */
+    .comparison-section {
+      max-width: 960px;
+      margin: 0 auto 4rem;
+      padding: 0 1.5rem;
+    }
+    .comparison-section h2 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .table-container {
+      overflow-x: auto;
+      background: #fff;
+      border-radius: 1rem;
+      border: 1px solid #E2E8F0;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    }
+    table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; }
+    th, td { padding: 1rem 1.25rem; border-bottom: 1px solid #F1F5F9; }
+    th { background: #F8FAFC; font-weight: 700; color: var(--zinc-800); }
+    .highlight-col { background: #FFF7ED; font-weight: 700; color: #C2410C; }
+
+    /* FAQ */
+    .faq-section {
+      max-width: 800px;
+      margin: 0 auto 5rem;
+      padding: 0 1.5rem;
+    }
+    .faq-section h2 { font-size: 1.75rem; font-weight: 800; text-align: center; margin-bottom: 1.75rem; }
+    .faq-item {
+      background: #fff;
+      border: 1px solid #E2E8F0;
+      border-radius: 0.875rem;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .faq-item h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .faq-item p { font-size: 0.925rem; color: var(--zinc-600); }
+
+    /* 4-Column Professional B2B SaaS Footer */
+    .site-footer {
+      background: #FFFFFF;
+      border-top: 1px solid #E2E8F0;
+      padding: 3.5rem 1.5rem 2rem;
+      color: var(--zinc-600);
+      font-size: 0.875rem;
+    }
+    .footer-container {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid #F1F5F9;
+      text-align: left;
+    }
+    .footer-col h4 {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--zinc-900);
+      margin-bottom: 1rem;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 0.65rem; }
+    .footer-col a {
+      color: var(--zinc-600);
+      text-decoration: none;
+      font-size: 0.825rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--primary); }
+    .footer-col a svg { width: 14px; height: 14px; opacity: 0.75; }
+    .footer-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding-top: 1.5rem;
+      font-size: 0.775rem;
+      color: #94A3B8;
+    }
+    .footer-bottom .logo-small { display: flex; align-items: center; gap: 8px; font-weight: 700; color: var(--zinc-800); }
+    .footer-bottom .logo-small img { width: 24px; height: 24px; border-radius: 4px; }
+
+    /* Floating WhatsApp Button */
+    .floating-wa {
+      position: fixed;
+      bottom: 1.25rem;
+      right: 1.25rem;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #10B981;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 0.75rem 1.15rem;
+      border-radius: 9999px;
+      box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.5);
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      transition: all 0.25s ease;
+    }
+    .floating-wa:hover {
+      background: #059669;
+      transform: translateY(-2px);
+      box-shadow: 0 15px 30px -5px rgba(16, 185, 129, 0.6);
+    }
+    .floating-wa svg { width: 20px; height: 20px; fill: currentColor; }
+    .floating-wa-ping {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #fff;
+      display: inline-block;
+      animation: pulse 2s infinite;
+    }
+    @media (max-width: 640px) {
+      .floating-wa span.text { display: none; }
+      .floating-wa { padding: 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Banner -->
+  <div class="announcement-banner">
+    <span>Limited Time Offer: Free menu setup, thermal printer configuration & zero onboarding fees!</span>
+    <a href="/#pricing">View Hardware Bundles &rarr;</a>
+  </div>
+
+  <header>
+    <a href="/" class="logo-box">
+      <img src="/logo.png" alt="CafeQR Logo">
+      <span>CafeQR Cafe POS</span>
+    </a>
+    <nav class="desktop-nav">
+      <a href="#features">Features</a>
+      <a href="#comparison">Comparison</a>
+      <a href="/#pricing">Pricing & Kits</a>
+      <a href="/#reviews">5.0★ Reviews</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="https://cafeqr-frontend.pages.dev/login/" class="btn-login" target="_blank" rel="noopener noreferrer">
+        POS Login
+      </a>
+      <a href="/#contact-demo" class="btn-demo">
+        Request Live Demo
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="badge-pill">
+        <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2;" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+          <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+          <line x1="6" y1="1" x2="6" y2="4" /><line x1="10" y1="1" x2="10" y2="4" /><line x1="14" y1="1" x2="14" y2="4" />
+        </svg>
+        <span>Built for Coffee Shops, QSR & Juice Bars</span>
+      </div>
+      <h1>Fast, Modern <span>Cafe Billing Software</span> with QR Menu & Modifiers</h1>
+      <p class="lead">Settle beverage orders in under 3 seconds. Support endless milk & syrup modifiers, empower guests with self-ordering QR menus, and print high-speed receipts wirelessly via Bluetooth.</p>
+
+      <div class="hero-ctas">
+        <a href="/#contact-demo" class="cta-primary">
+          <span>Request Free Live Demo</span>
+          <svg viewBox="0 0 24 24" style="width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.5;" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+        <a href="/#pricing" class="cta-secondary">
+          View Starter & Pro Kits (From ₹4,999)
+        </a>
+      </div>
+
+      <div class="social-proof-bar">
+        <a href="/#reviews" class="proof-item">
+          <svg viewBox="0 0 24 24" style="width: 16px; height: 16px; fill: #F59E0B; color: #F59E0B;" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+          </svg>
+          <span><strong>5.0 / 5.0 Rating</strong> on Google Business (Verified)</span>
+        </a>
+        <span>&bull;</span>
+        <span class="proof-item">
+          <svg viewBox="0 0 24 24" style="width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2;" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+          </svg>
+          <span><strong>3-Second Rapid Checkout</strong></span>
+        </span>
+        <span>&bull;</span>
+        <span class="proof-item">
+          <svg viewBox="0 0 24 24" style="width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2;" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" />
+            <rect x="14" y="14" width="7" height="7" /><rect x="3" y="14" width="7" height="7" />
+          </svg>
+          <span><strong>Self-Ordering QR Menu Included</strong></span>
+        </span>
+      </div>
+    </section>
+
+    <section id="features" class="card-grid">
+      <div class="feature-card">
+        <div class="feature-icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+          </svg>
+        </div>
+        <h3>Lightning Counter Sales</h3>
+        <p>Large visual touch buttons designed for busy baristas. Tap drinks, add pastry pairings, and settle via UPI QR in seconds without queues backing up outside the door.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+            <line x1="4" y1="21" x2="4" y2="14" /><line x1="4" y1="10" x2="4" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="12" /><line x1="12" y1="8" x2="12" y2="3" />
+            <line x1="20" y1="21" x2="20" y2="16" /><line x1="20" y1="12" x2="20" y2="3" />
+            <line x1="1" y1="14" x2="7" y2="14" /><line x1="9" y1="8" x2="15" y2="8" /><line x1="17" y1="16" x2="23" y2="16" />
+          </svg>
+        </div>
+        <h3>Drink Modifiers & Add-ons</h3>
+        <p>Effortlessly manage customizations: Dairy vs. Oat vs. Almond Milk, Hot vs. Iced, Sugar %, and Vanilla / Hazelnut shots. Automatic upcharges calculate correctly every time.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" />
+            <rect x="14" y="14" width="7" height="7" /><rect x="3" y="14" width="7" height="7" />
+          </svg>
+        </div>
+        <h3>Contactless Table QR Ordering</h3>
+        <p>Place sleek CafeQR stands on every table. Customers scan, browse rich food images, place orders, and pay without waiting for staff to arrive with paper menus.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" />
+            <line x1="7" y1="7" x2="7.01" y2="7" />
+          </svg>
+        </div>
+        <h3>Combo & Pairing Deals</h3>
+        <p>Create high-converting counter offers such as "Cappuccino + Croissant @ ₹249". Automatically prompt cashiers with upsell suggestions during checkout.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+            <line x1="12" y1="22.08" x2="12" y2="12" />
+          </svg>
+        </div>
+        <h3>Coffee Bean & Milk Stock ERP</h3>
+        <p>Track espresso beans, syrup bottles, dairy cartons, and paper cups in real time. Deductions occur automatically with every beverage sold.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="6 9 6 2 18 2 18 9" />
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+            <rect x="6" y="14" width="12" height="8" />
+          </svg>
+        </div>
+        <h3>Barista Display & KOT Print</h3>
+        <p>Send tickets instantly to the barista station via 58mm or 80mm Bluetooth printer or Android tablet display with customized preparation notes.</p>
+      </div>
+    </section>
+
+    <section id="comparison" class="comparison-section">
+      <h2>Why Modern Cafes Choose CafeQR Over Clunky Legacy Registers</h2>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Features</th>
+              <th class="highlight-col">CafeQR Cafe System</th>
+              <th>Traditional Cash Register</th>
+              <th>Generic Accounting Software</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Drink Customization Modifiers</strong></td>
+              <td class="highlight-col">Full multi-tier modifier engine</td>
+              <td>Manual price entry only</td>
+              <td>Clunky item sub-codes</td>
+            </tr>
+            <tr>
+              <td><strong>QR Table Ordering</strong></td>
+              <td class="highlight-col">Included free</td>
+              <td>Not possible</td>
+              <td>Requires expensive add-ons</td>
+            </tr>
+            <tr>
+              <td><strong>Printer Mobility</strong></td>
+              <td class="highlight-col">Wireless Bluetooth 58mm / 80mm</td>
+              <td>Heavy cabled mechanical printer</td>
+              <td>Requires A4 desktop printer</td>
+            </tr>
+            <tr>
+              <td><strong>Real-Time Mobile Dashboard</strong></td>
+              <td class="highlight-col">Included (Owner smartphone app)</td>
+              <td>End-of-day paper Z-report only</td>
+              <td>Requires laptop access</td>
+            </tr>
+            <tr>
+              <td><strong>Customer Reviews</strong></td>
+              <td class="highlight-col">5.0★ Google Verified</td>
+              <td>None</td>
+              <td>Unverified</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="faq" class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h3>Can we run CafeQR on an Android tablet or phone?</h3>
+        <p>Yes! CafeQR runs smoothly on any Android phone, Android tablet, iPad, or touch all-in-one POS terminal. Pair it with our portable Bluetooth printer and your counter is ready to bill.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can we update menu items and prices instantly?</h3>
+        <p>Yes. Add new seasonal drinks, change prices, or mark sold-out items with one click. Changes reflect immediately on both counter POS and customer QR menus.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Is there any monthly subscription fee?</h3>
+        <p>No monthly lock-in! CafeQR offers simple transparent yearly pricing (₹2,499/year software or hardware bundles starting from ₹4,999 complete).</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- 4-Column Professional B2B SaaS Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Industry Solutions</h4>
+          <ul>
+            <li><a href="/pos-for-restaurants/">Restaurants & Dining</a></li>
+            <li><a href="/pos-for-cafes/">Cafes & Quick Service</a></li>
+            <li><a href="/pos-for-bakeries/">Bakeries & Cake Studios</a></li>
+            <li><a href="/pos-for-food-trucks/">Food Trucks & Kiosks</a></li>
+            <li><a href="/#pricing">Retail & Specialty Billing</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Hardware & Kits</h4>
+          <ul>
+            <li><a href="/#pricing">Starter 58mm Thermal Kit</a></li>
+            <li><a href="/#pricing">Pro 80mm High-Speed Kit</a></li>
+            <li><a href="/#pricing">Software Only License</a></li>
+            <li><a href="/bluetooth-thermal-printer-billing/">Thermal Printer Guide</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources & Portals</h4>
+          <ul>
+            <li><a href="/#reviews">5.0★ Google Verified Reviews</a></li>
+            <li><a href="/blog/best-pos-billing-software-2026/">Best POS Software 2026</a></li>
+            <li><a href="https://cafeqr-frontend.pages.dev/login/" target="_blank" rel="noopener noreferrer">POS Cloud Merchant Login</a></li>
+            <li><a href="/#faq">Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Support & Legal</h4>
+          <ul>
+            <li><a href="tel:+917012120844">+91 70121 20844</a></li>
+            <li><a href="mailto:support@cafeqr.in">support@cafeqr.in</a></li>
+            <li><span>Thrissur, Kerala, India</span></li>
+            <li><a href="/#terms">Terms & Refund Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="logo-small">
+          <img src="/logo.png" alt="Cafe QR Logo">
+          <span>Cafe QR POS System</span>
+        </div>
+        <div>
+          <span>&copy; 2026 Cafe QR. All rights reserved. &bull; Made for Growing Businesses in India</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Action Button -->
+  <a href="https://wa.me/917012120844?text=Hi%20CafeQR!%20I%20run%20a%20cafe/coffee%20shop%20and%20want%20a%20free%20live%20demo." target="_blank" rel="noopener noreferrer" class="floating-wa" aria-label="Chat on WhatsApp">
+    <span class="floating-wa-ping"></span>
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    <span class="text">Chat for Demo</span>
+  </a>
+
+</body>
+</html>
