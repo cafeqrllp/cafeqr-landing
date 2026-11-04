@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Bakery POS & Billing Software with Advance Cake Orders | CafeQR</title>
-  <meta name="description" content="Dedicated Bakery POS software for cake shops, patisseries, and sweet bakeries. Weight-based pricing, custom cake advance booking with photo attachment, batch expiry tracking, and thermal receipt printing.">
-  <meta name="keywords" content="bakery POS software, cake shop billing machine, advance cake order software, bakery billing system, weight based billing, CafeQR POS">
+  <meta name="description"
+    content="Dedicated Bakery POS software for cake shops, patisseries, and sweet bakeries. Weight-based pricing, custom cake advance booking with photo attachment, batch expiry tracking, and thermal receipt printing.">
+  <meta name="keywords"
+    content="bakery POS software, cake shop billing machine, advance cake order software, bakery billing system, weight based billing, CafeQR POS">
   <link rel="canonical" href="https://www.cafeqr.in/pos-for-bakeries/">
 
   <!-- Open Graph / Meta -->
@@ -13,7 +16,8 @@
   <meta property="og:site_name" content="CafeQR POS ERP">
   <meta property="og:url" content="https://www.cafeqr.in/pos-for-bakeries/">
   <meta property="og:title" content="Bakery POS & Billing Software with Advance Orders | CafeQR">
-  <meta property="og:description" content="Manage custom birthday cake bookings, weight variants (0.5kg/1kg), ingredient batches, and fast counter billing with CafeQR.">
+  <meta property="og:description"
+    content="Manage custom birthday cake bookings, weight variants (0.5kg/1kg), ingredient batches, and fast counter billing with CafeQR.">
   <meta property="og:image" content="https://www.cafeqr.in/logo.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -93,8 +97,17 @@
       --zinc-100: #F1F5F9;
       --zinc-50: #F8FAFC;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       line-height: 1.6;
@@ -113,6 +126,7 @@
       font-size: 0.8rem;
       font-weight: 600;
     }
+
     .announcement-banner a {
       color: #EA580C;
       font-weight: 700;
@@ -134,17 +148,35 @@
       justify-content: space-between;
       gap: 1rem;
     }
-    .logo-box { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; font-weight: 800; font-size: 1.15rem; }
-    .logo-box img { width: 34px; height: 34px; border-radius: 8px; }
+
+    .logo-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: inherit;
+      font-weight: 800;
+      font-size: 1.15rem;
+    }
+
+    .logo-box img {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+    }
 
     .desktop-nav {
       display: none;
       align-items: center;
       gap: 1.5rem;
     }
+
     @media (min-width: 860px) {
-      .desktop-nav { display: flex; }
+      .desktop-nav {
+        display: flex;
+      }
     }
+
     .desktop-nav a {
       text-decoration: none;
       color: var(--zinc-600);
@@ -152,9 +184,17 @@
       font-weight: 600;
       transition: color 0.2s;
     }
-    .desktop-nav a:hover { color: var(--primary); }
 
-    .nav-actions { display: flex; align-items: center; gap: 0.75rem; }
+    .desktop-nav a:hover {
+      color: var(--primary);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
     .btn-login {
       display: none;
       text-decoration: none;
@@ -166,10 +206,17 @@
       border: 1px solid #CBD5E1;
       transition: all 0.2s;
     }
+
     @media (min-width: 640px) {
-      .btn-login { display: inline-flex; align-items: center; }
+      .btn-login {
+        display: inline-flex;
+        align-items: center;
+      }
     }
-    .btn-login:hover { background: var(--zinc-100); }
+
+    .btn-login:hover {
+      background: var(--zinc-100);
+    }
 
     .btn-demo {
       background: var(--primary);
@@ -185,7 +232,11 @@
       box-shadow: 0 4px 14px rgba(249, 115, 22, 0.3);
       transition: background 0.2s, transform 0.2s;
     }
-    .btn-demo:hover { background: var(--primary-hover); transform: translateY(-1px); }
+
+    .btn-demo:hover {
+      background: var(--primary-hover);
+      transform: translateY(-1px);
+    }
 
     .btn-wa {
       background: #10B981;
@@ -201,7 +252,11 @@
       box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
       transition: background 0.2s, transform 0.2s;
     }
-    .btn-wa:hover { background: #059669; transform: translateY(-1px); }
+
+    .btn-wa:hover {
+      background: #059669;
+      transform: translateY(-1px);
+    }
 
     /* Hero */
     .hero {
@@ -210,6 +265,7 @@
       padding: 0 1.5rem;
       text-align: center;
     }
+
     .badge-pill {
       display: inline-flex;
       align-items: center;
@@ -223,6 +279,7 @@
       margin-bottom: 1.25rem;
       border: 1px solid #FED7AA;
     }
+
     h1 {
       font-size: clamp(2rem, 5vw, 3.25rem);
       font-weight: 900;
@@ -231,13 +288,18 @@
       margin-bottom: 1.25rem;
       letter-spacing: -0.02em;
     }
-    h1 span { color: var(--primary); }
+
+    h1 span {
+      color: var(--primary);
+    }
+
     .lead {
       font-size: 1.125rem;
       color: var(--zinc-600);
       max-width: 760px;
       margin: 0 auto 2rem;
     }
+
     .hero-ctas {
       display: flex;
       flex-wrap: wrap;
@@ -245,6 +307,7 @@
       gap: 12px;
       margin-bottom: 2rem;
     }
+
     .cta-primary {
       background: var(--primary);
       color: #fff;
@@ -259,7 +322,12 @@
       box-shadow: 0 10px 25px -5px rgba(249, 115, 22, 0.35);
       transition: all 0.2s;
     }
-    .cta-primary:hover { background: var(--primary-hover); transform: translateY(-1px); }
+
+    .cta-primary:hover {
+      background: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+
     .cta-secondary {
       background: #fff;
       color: var(--zinc-900);
@@ -271,7 +339,10 @@
       text-decoration: none;
       transition: background 0.2s;
     }
-    .cta-secondary:hover { background: var(--zinc-100); }
+
+    .cta-secondary:hover {
+      background: var(--zinc-100);
+    }
 
     .social-proof-bar {
       display: flex;
@@ -284,6 +355,7 @@
       font-weight: 600;
       margin-bottom: 3.5rem;
     }
+
     .social-proof-bar a {
       color: inherit;
       text-decoration: none;
@@ -292,7 +364,11 @@
       gap: 5px;
       transition: color 0.2s;
     }
-    .social-proof-bar a:hover { color: var(--primary); }
+
+    .social-proof-bar a:hover {
+      color: var(--primary);
+    }
+
     .proof-item {
       display: inline-flex;
       align-items: center;
@@ -308,18 +384,21 @@
       margin: 0 auto 4rem;
       padding: 0 1.5rem;
     }
+
     .feature-card {
       background: #fff;
       border: 1px solid #E2E8F0;
       border-radius: 1.25rem;
       padding: 1.75rem;
-      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.03);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
       transition: transform 0.2s, box-shadow 0.2s;
     }
+
     .feature-card:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 20px -5px rgba(0,0,0,0.06);
+      box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.06);
     }
+
     .feature-icon-badge {
       width: 44px;
       height: 44px;
@@ -332,8 +411,19 @@
       color: var(--primary);
       margin-bottom: 1rem;
     }
-    .feature-card h3 { font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--zinc-900); }
-    .feature-card p { font-size: 0.925rem; color: var(--zinc-600); line-height: 1.5; }
+
+    .feature-card h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      color: var(--zinc-900);
+    }
+
+    .feature-card p {
+      font-size: 0.925rem;
+      color: var(--zinc-600);
+      line-height: 1.5;
+    }
 
     /* Comparison */
     .comparison-section {
@@ -341,23 +431,46 @@
       margin: 0 auto 4rem;
       padding: 0 1.5rem;
     }
+
     .comparison-section h2 {
       font-size: 1.85rem;
       font-weight: 800;
       text-align: center;
       margin-bottom: 1.5rem;
     }
+
     .table-container {
       overflow-x: auto;
       background: #fff;
       border-radius: 1rem;
       border: 1px solid #E2E8F0;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
     }
-    table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; }
-    th, td { padding: 1rem 1.25rem; border-bottom: 1px solid #F1F5F9; }
-    th { background: #F8FAFC; font-weight: 700; color: var(--zinc-800); }
-    .highlight-col { background: #FFF7ED; font-weight: 700; color: #C2410C; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+
+    th,
+    td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid #F1F5F9;
+    }
+
+    th {
+      background: #F8FAFC;
+      font-weight: 700;
+      color: var(--zinc-800);
+    }
+
+    .highlight-col {
+      background: #FFF7ED;
+      font-weight: 700;
+      color: #C2410C;
+    }
 
     /* FAQ */
     .faq-section {
@@ -365,7 +478,14 @@
       margin: 0 auto 5rem;
       padding: 0 1.5rem;
     }
-    .faq-section h2 { font-size: 1.75rem; font-weight: 800; text-align: center; margin-bottom: 1.75rem; }
+
+    .faq-section h2 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 1.75rem;
+    }
+
     .faq-item {
       background: #fff;
       border: 1px solid #E2E8F0;
@@ -373,8 +493,17 @@
       padding: 1.25rem 1.5rem;
       margin-bottom: 1rem;
     }
-    .faq-item h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; }
-    .faq-item p { font-size: 0.925rem; color: var(--zinc-600); }
+
+    .faq-item h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .faq-item p {
+      font-size: 0.925rem;
+      color: var(--zinc-600);
+    }
 
     /* 4-Column Professional B2B SaaS Footer */
     .site-footer {
@@ -384,10 +513,12 @@
       color: var(--zinc-600);
       font-size: 0.875rem;
     }
+
     .footer-container {
       max-width: 1120px;
       margin: 0 auto;
     }
+
     .footer-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -396,6 +527,7 @@
       border-bottom: 1px solid #F1F5F9;
       text-align: left;
     }
+
     .footer-col h4 {
       font-size: 0.75rem;
       font-weight: 800;
@@ -404,8 +536,15 @@
       color: var(--zinc-900);
       margin-bottom: 1rem;
     }
-    .footer-col ul { list-style: none; }
-    .footer-col li { margin-bottom: 0.65rem; }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin-bottom: 0.65rem;
+    }
+
     .footer-col a {
       color: var(--zinc-600);
       text-decoration: none;
@@ -415,8 +554,17 @@
       gap: 0.5rem;
       transition: color 0.2s;
     }
-    .footer-col a:hover { color: var(--primary); }
-    .footer-col a svg { width: 14px; height: 14px; opacity: 0.75; }
+
+    .footer-col a:hover {
+      color: var(--primary);
+    }
+
+    .footer-col a svg {
+      width: 14px;
+      height: 14px;
+      opacity: 0.75;
+    }
+
     .footer-bottom {
       display: flex;
       flex-wrap: wrap;
@@ -427,8 +575,20 @@
       font-size: 0.775rem;
       color: #94A3B8;
     }
-    .footer-bottom .logo-small { display: flex; align-items: center; gap: 8px; font-weight: 700; color: var(--zinc-800); }
-    .footer-bottom .logo-small img { width: 24px; height: 24px; border-radius: 4px; }
+
+    .footer-bottom .logo-small {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      color: var(--zinc-800);
+    }
+
+    .footer-bottom .logo-small img {
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+    }
 
     /* Floating WhatsApp Button */
     .floating-wa {
@@ -450,12 +610,19 @@
       border: 2px solid rgba(255, 255, 255, 0.4);
       transition: all 0.25s ease;
     }
+
     .floating-wa:hover {
       background: #059669;
       transform: translateY(-2px);
       box-shadow: 0 15px 30px -5px rgba(16, 185, 129, 0.6);
     }
-    .floating-wa svg { width: 20px; height: 20px; fill: currentColor; }
+
+    .floating-wa svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
     .floating-wa-ping {
       width: 8px;
       height: 8px;
@@ -464,17 +631,36 @@
       display: inline-block;
       animation: pulse 2s infinite;
     }
+
     @keyframes pulse {
-      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
-      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(255, 255, 255, 0); }
-      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+      0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+      }
+
+      70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 8px rgba(255, 255, 255, 0);
+      }
+
+      100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+      }
     }
+
     @media (max-width: 640px) {
-      .floating-wa span.text { display: none; }
-      .floating-wa { padding: 0.85rem; }
+      .floating-wa span.text {
+        display: none;
+      }
+
+      .floating-wa {
+        padding: 0.85rem;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <!-- Top Announcement Banner -->
@@ -508,21 +694,30 @@
   <main>
     <section class="hero">
       <div class="badge-pill">
-        <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2;" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2;"
+          xmlns="http://www.w3.org/2000/svg">
           <path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8" />
           <path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1" />
           <path d="M2 21h20" />
-          <path d="M7 8v2" /><path d="M12 8v2" /><path d="M17 8v2" /><path d="M7 4h.01" /><path d="M12 4h.01" /><path d="M17 4h.01" />
+          <path d="M7 8v2" />
+          <path d="M12 8v2" />
+          <path d="M17 8v2" />
+          <path d="M7 4h.01" />
+          <path d="M12 4h.01" />
+          <path d="M17 4h.01" />
         </svg>
         <span>Built for Bakeries, Cake Studios & Sweet Shops</span>
       </div>
       <h1>Smart <span>Bakery POS Software</span> with Advance Custom Cake Orders</h1>
-      <p class="lead">Never lose a birthday cake order or miss a delivery deadline. Track weight variants, manage advance deposits, monitor ingredient shelf life, and print professional GST bills effortlessly.</p>
+      <p class="lead">Never lose a birthday cake order or miss a delivery deadline. Track weight variants, manage
+        advance deposits, monitor ingredient shelf life, and print professional GST bills effortlessly.</p>
 
       <div class="hero-ctas">
         <a href="/#contact-demo" class="cta-primary">
           <span>Request Free Live Demo</span>
-          <svg viewBox="0 0 24 24" style="width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.5;" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 24 24"
+            style="width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.5;"
+            xmlns="http://www.w3.org/2000/svg">
             <polyline points="9 18 15 12 9 6"></polyline>
           </svg>
         </a>
@@ -533,25 +728,33 @@
 
       <div class="social-proof-bar">
         <a href="/#reviews" class="proof-item">
-          <svg viewBox="0 0 24 24" style="width: 16px; height: 16px; fill: #F59E0B; color: #F59E0B;" xmlns="http://www.w3.org/2000/svg">
-            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+          <svg viewBox="0 0 24 24" style="width: 16px; height: 16px; fill: #F59E0B; color: #F59E0B;"
+            xmlns="http://www.w3.org/2000/svg">
+            <polygon
+              points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
           </svg>
           <span><strong>5.0 / 5.0 Rating</strong> on Google Business (Verified)</span>
         </a>
         <span>&bull;</span>
         <span class="proof-item">
-          <svg viewBox="0 0 24 24" style="width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2;" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 24 24" style="width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2;"
+            xmlns="http://www.w3.org/2000/svg">
             <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-            <line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" />
+            <line x1="16" y1="2" x2="16" y2="6" />
+            <line x1="8" y1="2" x2="8" y2="6" />
+            <line x1="3" y1="10" x2="21" y2="10" />
           </svg>
           <span><strong>Advance Order Calendar</strong></span>
         </span>
         <span>&bull;</span>
         <span class="proof-item">
-          <svg viewBox="0 0 24 24" style="width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2;" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 24 24" style="width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2;"
+            xmlns="http://www.w3.org/2000/svg">
             <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
             <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
-            <path d="M7 21h10" /><path d="M12 3v18" /><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" />
+            <path d="M7 21h10" />
+            <path d="M12 3v18" />
+            <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" />
           </svg>
           <span><strong>Weight-Based Pricing</strong></span>
         </span>
@@ -561,68 +764,86 @@
     <section id="features" class="card-grid">
       <div class="feature-card">
         <div class="feature-icon-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            xmlns="http://www.w3.org/2000/svg">
             <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-            <line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" />
+            <line x1="16" y1="2" x2="16" y2="6" />
+            <line x1="8" y1="2" x2="8" y2="6" />
+            <line x1="3" y1="10" x2="21" y2="10" />
           </svg>
         </div>
         <h3>Advance Cake Booking Calendar</h3>
-        <p>Record customer name, delivery date/time slot, flavor, customized inscription (e.g. "Happy 1st Birthday Aanya"), and reference design notes. Never misplace a cake book again.</p>
+        <p>Record customer name, delivery date/time slot, flavor, customized inscription (e.g. "Happy 1st Birthday
+          Aanya"), and reference design notes. Never misplace a cake book again.</p>
       </div>
 
       <div class="feature-card">
         <div class="feature-icon-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            xmlns="http://www.w3.org/2000/svg">
             <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
             <line x1="1" y1="10" x2="23" y2="10" />
           </svg>
         </div>
         <h3>Advance Deposit & Balance Tracker</h3>
-        <p>Accept 50% advance token payments via UPI QR or cash. System automatically prints an advance receipt with balance due clearly highlighted for the customer pickup day.</p>
+        <p>Accept 50% advance token payments via UPI QR or cash. System automatically prints an advance receipt with
+          balance due clearly highlighted for the customer pickup day.</p>
       </div>
 
       <div class="feature-card">
         <div class="feature-icon-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            xmlns="http://www.w3.org/2000/svg">
             <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
             <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
-            <path d="M7 21h10" /><path d="M12 3v18" /><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" />
+            <path d="M7 21h10" />
+            <path d="M12 3v18" />
+            <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" />
           </svg>
         </div>
         <h3>Weight & Portion Variants</h3>
-        <p>Set up cakes by weight: 0.5 kg, 1 kg, 1.5 kg, or custom per-kg rates. Pastries and dry snacks can be billed per piece or by weight with one tap.</p>
+        <p>Set up cakes by weight: 0.5 kg, 1 kg, 1.5 kg, or custom per-kg rates. Pastries and dry snacks can be billed
+          per piece or by weight with one tap.</p>
       </div>
 
       <div class="feature-card">
         <div class="feature-icon-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
-            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
             <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
             <line x1="12" y1="22.08" x2="12" y2="12" />
           </svg>
         </div>
         <h3>Raw Materials & Baking ERP</h3>
-        <p>Keep track of flour, butter, whipping cream, cocoa, and packaging box stock. Automatically deduct ingredients when cakes are marked finished by the kitchen.</p>
+        <p>Keep track of flour, butter, whipping cream, cocoa, and packaging box stock. Automatically deduct ingredients
+          when cakes are marked finished by the kitchen.</p>
       </div>
 
       <div class="feature-card">
         <div class="feature-icon-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="12 6 12 12 16 14" />
           </svg>
         </div>
         <h3>Expiry & Shelf-Life Alerts</h3>
-        <p>Track perishable cream products and display counter pastries. Mark markdowns or discount tags before end of day to minimize bakery food wastage.</p>
+        <p>Track perishable cream products and display counter pastries. Mark markdowns or discount tags before end of
+          day to minimize bakery food wastage.</p>
       </div>
 
       <div class="feature-card">
         <div class="feature-icon-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            xmlns="http://www.w3.org/2000/svg">
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
           </svg>
         </div>
         <h3>SMS / WhatsApp Order Confirmation</h3>
-        <p>Send instant order confirmation receipts and "Your Cake is Ready for Pickup!" WhatsApp updates directly to happy customers.</p>
+        <p>Send instant order confirmation receipts and "Your Cake is Ready for Pickup!" WhatsApp updates directly to
+          happy customers.</p>
       </div>
     </section>
 
@@ -678,11 +899,13 @@
       <h2>Frequently Asked Questions</h2>
       <div class="faq-item">
         <h3>Can our bakers see upcoming cake delivery orders for the day?</h3>
-        <p>Yes. The kitchen view displays upcoming delivery schedules filtered by today, tomorrow, or this weekend so your baking team can prep fresh cakes right on time.</p>
+        <p>Yes. The kitchen view displays upcoming delivery schedules filtered by today, tomorrow, or this weekend so
+          your baking team can prep fresh cakes right on time.</p>
       </div>
       <div class="faq-item">
         <h3>Can we attach special requests like eggless or sugar-free?</h3>
-        <p>Yes. Quick dietary tags like Eggless, Gluten-Free, Less Cream, and Photo Cake are available to attach to any item ticket.</p>
+        <p>Yes. Quick dietary tags like Eggless, Gluten-Free, Less Cream, and Photo Cake are available to attach to any
+          item ticket.</p>
       </div>
     </section>
   </main>
@@ -715,7 +938,8 @@
           <ul>
             <li><a href="/#reviews">5.0★ Google Verified Reviews</a></li>
             <li><a href="/blog/best-pos-billing-software-2026/">Best POS Software 2026</a></li>
-            <li><a href="https://cafeqr-frontend.pages.dev/login/" target="_blank" rel="noopener noreferrer">POS Cloud Merchant Login</a></li>
+            <li><a href="https://cafeqr-frontend.pages.dev/login/" target="_blank" rel="noopener noreferrer">POS Cloud
+                Merchant Login</a></li>
             <li><a href="/#faq">Frequently Asked Questions</a></li>
           </ul>
         </div>
@@ -742,13 +966,16 @@
   </footer>
 
   <!-- Floating WhatsApp Action Button -->
-  <a href="https://wa.me/917012120844?text=Hi%20CafeQR!%20I%20run%20a%20bakery/cake%20shop%20and%20want%20a%20free%20live%20demo." target="_blank" rel="noopener noreferrer" class="floating-wa" aria-label="Chat on WhatsApp">
+  <a href="https://wa.me/917012120844?text=Hi%20CafeQR!%20I%20run%20a%20bakery/cake%20shop%20and%20want%20a%20free%20live%20demo."
+    target="_blank" rel="noopener noreferrer" class="floating-wa" aria-label="Chat on WhatsApp">
     <span class="floating-wa-ping"></span>
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
     </svg>
     <span class="text">Chat for Demo</span>
   </a>
 
 </body>
+
 </html>
