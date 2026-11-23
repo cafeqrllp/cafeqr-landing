@@ -1,0 +1,46 @@
+{
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/login",
+      "destination": "https://cafeqr-frontend.pages.dev/login/",
+      "permanent": true
+    },
+    {
+      "source": "/login/",
+      "destination": "https://cafeqr-frontend.pages.dev/login/",
+      "permanent": true
+    },
+    {
+      "source": "/signup",
+      "destination": "https://wa.me/917012120844?text=Hi%20CafeQR!%20I%20want%20to%20get%20started%20with%20CafeQR%20POS.",
+      "permanent": true
+    },
+    {
+      "source": "/signup/",
+      "destination": "https://wa.me/917012120844?text=Hi%20CafeQR!%20I%20want%20to%20get%20started%20with%20CafeQR%20POS.",
+      "permanent": true
+    },
+    {
+      "source": "/faq",
+      "destination": "/#faq",
+      "permanent": true
+    },
+    {
+      "source": "/faq/",
+      "destination": "/#faq",
+      "permanent": true
+    },
+    {
+      "source": "/features",
+      "destination": "/#features",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/((?!pos-for-restaurants|pos-for-cafes|pos-for-bakeries|pos-for-food-trucks|bluetooth-thermal-printer-billing|blog|vs|pos-billing-software-kochi|pos-billing-software-bangalore|pos-billing-software-dubai).*)",
+      "destination": "/index.html"
+    }
+  ]
+}
