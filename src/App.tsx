@@ -30,6 +30,7 @@ import {
   FileText,
   LogIn,
   HelpCircle,
+  ArrowRightLeft,
   Mail,
   Phone,
 } from 'lucide-react';
@@ -1041,6 +1042,15 @@ function App() {
                   >
                     <FileText className="w-3.5 h-3.5 text-zinc-400 group-hover:text-primary transition-colors shrink-0" />
                     <span>Best POS Software 2026</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/compare/"
+                    className="group flex items-center gap-2 text-zinc-600 hover:text-primary transition-colors"
+                  >
+                    <ArrowRightLeft className="w-3.5 h-3.5 text-zinc-400 group-hover:text-primary transition-colors shrink-0" />
+                    <span>Compare POS Alternatives</span>
                   </a>
                 </li>
                 <li>

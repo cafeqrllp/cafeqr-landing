@@ -43,6 +43,14 @@
     <priority>0.85</priority>
   </url>
 
+  <!-- Comparison & Alternatives Hub -->
+  <url>
+    <loc>https://www.cafeqr.in/compare/</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
   <!-- Competitor Comparison & Displacement Pages -->
   <url>
     <loc>https://www.cafeqr.in/vs/petpooja/</loc>
