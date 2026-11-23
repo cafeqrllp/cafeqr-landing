@@ -494,6 +494,30 @@ function generateCustomPageHtml(item, isCity) {
           "bestRating": "5"
         }
       },
+      {
+        "@type": "Product",
+        "name": "CafeQR Starter Billing Machine Kit for ${item.name}",
+        "image": "https://www.cafeqr.in${item.printerImg}",
+        "description": "All-in-one POS billing machine starter kit for ${item.name}. Includes ${item.printerName}, 1-year CafeQR POS license, dynamic UPI QR on bill, and 100% offline billing safeguard.",
+        "sku": "CQR-${item.slug.toUpperCase()}-KIT",
+        "brand": { "@type": "Brand", "name": "CafeQR" },
+        "offers": {
+          "@type": "Offer",
+          "url": "https://www.cafeqr.in/${item.slug}/",
+          "price": "4999",
+          "priceCurrency": "INR",
+          "priceValidUntil": "2027-12-31",
+          "itemCondition": "https://schema.org/NewCondition",
+          "availability": "https://schema.org/InStock",
+          "seller": { "@type": "Organization", "name": "CafeQR POS" }
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "reviewCount": "48",
+          "bestRating": "5"
+        }
+      },
       ${JSON.stringify(businessSchema)},
       ${JSON.stringify(faqSchema)},
       {
