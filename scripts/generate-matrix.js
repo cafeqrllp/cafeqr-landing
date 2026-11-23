@@ -467,8 +467,8 @@ function generateCustomPageHtml(item, isCity) {
   <meta property="og:image" content="https://www.cafeqr.in/logo.png">
 
   <!-- Mobile & Icons -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" href="/logo.png">
+  <link rel="shortcut icon" href="/logo.png">
   <link rel="apple-touch-icon" href="/logo.png">
 
   <!-- Schema.org Structured Data -->
