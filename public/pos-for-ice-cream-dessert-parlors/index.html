@@ -30,7 +30,7 @@
     "@graph": [
       {
         "@type": "SoftwareApplication",
-        "name": "CafeQR POS for Ice Cream & Dessert Parlors",
+        "name": "CafeQR POS Ice Cream & Dessert Parlors",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Android, Windows, Web, iOS",
         "offers": {
@@ -42,10 +42,12 @@
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "5.0",
-          "reviewCount": "41",
+          "reviewCount": "48",
           "bestRating": "5"
         }
       },
+      {"@type":"Service","name":"CafeQR POS Billing System for Ice Cream & Dessert Parlors","provider":{"@type":"Organization","name":"CafeQR POS"}},
+      {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I add custom cone types, scoops, and extra toppings easily?","acceptedAnswer":{"@type":"Answer","text":"Yes! CafeQR has a powerful modifier engine. When cashiers tap an ice cream item, a quick popup lets them select Single/Double scoop, Waffle Cone or Cup, and add toppings with one touch."}},{"@type":"Question","name":"Can it print a separate token for the customer to collect at the scoop bar?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can configure CafeQR to print a customer tax receipt and an automated pickup token number for clean queue organization."}},{"@type":"Question","name":"What happens if our shop Wi-Fi disconnects during a Sunday rush?","acceptedAnswer":{"@type":"Answer","text":"CafeQR operates 100% offline. You can continue punching orders and printing Bluetooth receipts without interruption. All data syncs to the cloud when connection returns."}},{"@type":"Question","name":"Does the ₹4,999 starter kit work on an Android tablet or phone?","acceptedAnswer":{"@type":"Answer","text":"Yes. CafeQR runs seamlessly on any Android tablet, smartphone, iPad, or Windows PC, connecting wirelessly to the included Bluetooth printer."}}]},
       {
         "@type": "BreadcrumbList",
         "itemListElement": [
@@ -64,12 +66,15 @@
       --primary-hover: #EA580C;
       --zinc-900: #0F172A;
       --zinc-800: #1E293B;
+      --zinc-700: #334155;
       --zinc-600: #475569;
       --zinc-500: #64748B;
       --zinc-200: #E2E8F0;
       --zinc-100: #F1F5F9;
       --zinc-50: #F8FAFC;
       --green-600: #16A34A;
+      --green-50: #F0FDF4;
+      --green-200: #BBF7D0;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -157,7 +162,7 @@
       flex-wrap: wrap;
       gap: 1rem;
       align-items: center;
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
     }
     .btn-main {
       background: #25D366;
@@ -182,6 +187,56 @@
       text-decoration: none;
     }
 
+    /* ── Sector Thermal Receipt Visual Box ──────────────────────────────── */
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      background: white;
+      border: 1px solid var(--zinc-200);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      margin: 3rem 0;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+      align-items: center;
+    }
+    @media (min-width: 768px) { .showcase-grid { grid-template-columns: 1fr 1.1fr; padding: 2.5rem; } }
+
+    .receipt-paper {
+      background: #FEFCE8;
+      border: 1px solid #FEF08A;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      color: #1E293B;
+      font-size: 0.85rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      position: relative;
+    }
+    .receipt-paper::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: radial-gradient(circle, transparent, transparent 50%, #FEFCE8 50%, #FEFCE8 100%);
+      background-size: 12px 12px;
+    }
+    .receipt-header { text-align: center; border-bottom: 1px dashed #CBD5E1; padding-bottom: 0.75rem; margin-bottom: 0.75rem; }
+    .receipt-title { font-weight: 900; font-size: 1rem; color: #0F172A; }
+    .receipt-sub { font-size: 0.75rem; color: #64748B; }
+    .receipt-line { display: flex; justify-content: space-between; margin-bottom: 0.35rem; }
+    .receipt-totals { border-top: 1px dashed #CBD5E1; border-bottom: 2px solid #0F172A; padding: 0.5rem 0; margin: 0.5rem 0; font-weight: 800; font-size: 0.95rem; }
+    .receipt-token { text-align: center; background: #DCFCE7; color: #166534; font-weight: 900; padding: 0.4rem; border-radius: 0.5rem; margin-top: 0.5rem; font-size: 0.8rem; }
+    .receipt-footer-tag { text-align: center; font-size: 0.7rem; color: #94A3B8; margin-top: 0.5rem; }
+
+    .showcase-info h3 { font-size: 1.75rem; font-weight: 900; margin-bottom: 0.75rem; line-height: 1.2; }
+    .showcase-info p { color: var(--zinc-600); margin-bottom: 1.25rem; font-size: 0.95rem; }
+    .feature-check-list { list-style: none; space-y: 0.5rem; }
+    .feature-check-list li { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; font-weight: 600; color: var(--zinc-700); margin-bottom: 0.5rem; }
+
+    /* ── Feature Cards ─────────────────────────────────────────────────── */
     .grid-3 {
       display: grid;
       grid-template-columns: 1fr;
@@ -200,6 +255,17 @@
     .card h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 0.5rem; }
     .card p { font-size: 0.9rem; color: var(--zinc-600); line-height: 1.5; }
 
+    /* ── Comparison Table ──────────────────────────────────────────────── */
+    .comparison-section { margin: 4rem 0; }
+    .comparison-section h2 { font-size: 1.75rem; font-weight: 900; margin-bottom: 1.5rem; text-align: center; }
+    .table-wrap { overflow-x: auto; background: white; border-radius: 1.25rem; border: 1px solid var(--zinc-200); box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
+    table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; }
+    th, td { padding: 1rem 1.25rem; border-bottom: 1px solid var(--zinc-200); }
+    th { background: var(--zinc-100); font-weight: 800; color: var(--zinc-800); }
+    td:nth-child(2) { font-weight: 700; color: #15803D; background: #F0FDF4; }
+    td:nth-child(3) { color: var(--zinc-500); }
+
+    /* ── Pricing Box ───────────────────────────────────────────────────── */
     .pricing-box {
       background: white;
       border: 2px solid var(--primary);
@@ -210,6 +276,53 @@
       box-shadow: 0 10px 30px rgba(249, 115, 22, 0.1);
     }
     .price-val { font-size: 3rem; font-weight: 900; color: var(--zinc-900); margin: 0.5rem 0; }
+
+    /* ── Trust Badges ──────────────────────────────────────────────────── */
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin: 2.5rem 0;
+    }
+    @media (min-width: 768px) { .trust-grid { grid-template-columns: repeat(4, 1fr); } }
+    .trust-item {
+      background: white;
+      border: 1px solid var(--zinc-200);
+      border-radius: 1rem;
+      padding: 1.25rem 1rem;
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--zinc-700);
+    }
+    .trust-icon { font-size: 1.5rem; display: block; margin-bottom: 0.35rem; }
+
+    /* ── FAQ Accordion ─────────────────────────────────────────────────── */
+    .faq-section { margin: 4rem 0; }
+    .faq-section h2 { font-size: 1.75rem; font-weight: 900; margin-bottom: 1.5rem; text-align: center; }
+    details {
+      background: white;
+      border: 1px solid var(--zinc-200);
+      border-radius: 1rem;
+      margin-bottom: 1rem;
+      padding: 1.25rem;
+      transition: all 0.2s;
+    }
+    details[open] { border-color: var(--primary); box-shadow: 0 4px 15px rgba(249, 115, 22, 0.08); }
+    summary {
+      font-weight: 800;
+      font-size: 1rem;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--zinc-900);
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; font-size: 1.4rem; color: var(--primary); font-weight: 900; }
+    details[open] summary::after { content: "−"; }
+    details p { margin-top: 0.85rem; color: var(--zinc-600); font-size: 0.9rem; line-height: 1.6; }
 
     footer {
       border-top: 1px solid var(--zinc-200);
@@ -226,8 +339,8 @@
 <body>
 
   <div class="banner">
-    🔥 Built for Ice Cream & Dessert Parlors: Plug-and-play POS Kit with 58mm Bluetooth Printer just ₹4,999.
-    <a href="https://wa.me/917012120844?text=Hi%20CafeQR!%20I%20want%20CafeQR%20POS%20for%20my%20Ice%20Cream%20%2F%20Dessert%20Parlor." target="_blank">Claim Kit &rarr;</a>
+    🚀 Dedicated Setup for Ice Cream & Dessert Parlors: Complete Hardware Kit + 1-Year License just ₹4,999.
+    <a href="https://wa.me/917012120844?text=Hi%20CafeQR!%20I%20want%20CafeQR%20POS%20for%20my%20Ice%20Cream%20%2F%20Dessert%20Parlor." target="_blank">Get Started &rarr;</a>
   </div>
 
   <header>
@@ -250,32 +363,160 @@
       <a href="https://www.cafeqr.in/#pricing" class="btn-sec">View All Plans</a>
     </div>
 
-    <div class="grid-3">
-      
-      <div class="card">
-        <h3>⚡ Complex Scoop & Modifier Billing</h3>
-        <p>Easily add single/double scoops, waffle cones, and extra toppings with intuitive 1-tap touch modifiers.</p>
+    <!-- ── Sector-Specific Thermal Receipt Showcase ─────────────────────── -->
+    <div class="showcase-grid">
+      <div>
+        <div class="receipt-paper">
+          <div class="receipt-header">
+            <div class="receipt-title">BLISS GELATO & DESSERT LOUNGE</div>
+            <div class="receipt-sub">Scoop Counter • Table 02</div>
+          </div>
+          <div style="margin: 0.75rem 0;">
+            
+            <div class="receipt-line">
+              <span>1x Dark Chocolate Gelato (Double Scoop)</span>
+              <span style="font-weight: 700;">₹180.00</span>
+            </div>
+            <div class="receipt-line">
+              <span>  ↳ Modifier: Fresh Waffle Cone</span>
+              <span style="font-weight: 700;">₹30.00</span>
+            </div>
+            <div class="receipt-line">
+              <span>  ↳ Modifier: Hot Fudge Drizzle</span>
+              <span style="font-weight: 700;">₹30.00</span>
+            </div>
+            <div class="receipt-line">
+              <span>1x Red Velvet Waffle Sundae</span>
+              <span style="font-weight: 700;">₹160.00</span>
+            </div>
+          </div>
+          <div class="receipt-line" style="font-size: 0.75rem; color: #64748B;">
+            <span>Subtotal</span>
+            <span>₹400.00</span>
+          </div>
+          <div class="receipt-line" style="font-size: 0.75rem; color: #64748B;">
+            <span>Taxes & GST</span>
+            <span>₹20.00 (GST 5%)</span>
+          </div>
+          <div class="receipt-line receipt-totals">
+            <span>TOTAL DUE</span>
+            <span style="color: #15803D;">₹420.00</span>
+          </div>
+          <div class="receipt-token">TOKEN #088 (SCOOP BAR)</div>
+          <div class="receipt-footer-tag">PAID VIA UPI • GPAY</div>
+        </div>
       </div>
-      <div class="card">
-        <h3>⚡ Batch & Flavor Inventory Tracking</h3>
-        <p>Track tub inventory in real time. Know exactly when high-demand gelato or brownie stocks are running low.</p>
-      </div>
-      <div class="card">
-        <h3>⚡ Fast Token & Receipt Printing</h3>
-        <p>Dual token and customer receipt printing ensures smooth handoff between billing counter and scoop station.</p>
+
+      <div class="showcase-info">
+        <span class="badge" style="margin-bottom: 0.75rem;">LIVE THERMAL BILL PREVIEW</span>
+        <h3>Built for the Real-World Operations of Ice Cream & Dessert Parlors</h3>
+        <p>No generic templates or rigid retail software. CafeQR is calibrated for fast counter turnover, instant Bluetooth printing, and zero internet downtime.</p>
+        <ul class="feature-check-list">
+          <li>✓ 2-second wireless ESC/POS Bluetooth printing</li>
+          <li>✓ Dynamic UPI QR code generated on every bill</li>
+          <li>✓ 100% offline billing safeguard during network drops</li>
+          <li>✓ Zero commissions on your branded delivery website</li>
+        </ul>
       </div>
     </div>
 
+    <!-- ── Core Pain Points & Solutions ────────────────────────────────── -->
+    <div class="grid-3">
+      
+      <div class="card">
+        <h3>⚡ 1-Tap Scoop & Topping Modifiers</h3>
+        <p>Easily punch single/double scoops, cone variations, waffle bowls, and syrup toppings in seconds without cashier confusion.</p>
+      </div>
+      <div class="card">
+        <h3>⚡ Tub & Flavor Inventory Depletion</h3>
+        <p>Track flavor tub stock in real time. Automatically know when high-demand Belgian chocolate or mango gelato runs low.</p>
+      </div>
+      <div class="card">
+        <h3>⚡ Dual Billing & Scoop Token Flow</h3>
+        <p>Print a customer receipt with UPI QR and a separate pickup token ticket for the scoop station to ensure zero customer handoff errors.</p>
+      </div>
+    </div>
+
+    <!-- ── Comparison Table ────────────────────────────────────────────── -->
+    <section class="comparison-section">
+      <h2>Why Food Businesses Upgrade to CafeQR</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Operational Capability</th>
+              <th>CafeQR Solution</th>
+              <th>Legacy POS / Aggregators</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td><strong>Flavor & Topping Modifiers</strong></td>
+              <td>1-Tap Touch Custom Modifiers</td>
+              <td>Tedious manual dropdowns / notes</td>
+            </tr>
+            <tr>
+              <td><strong>Sunday Rush Performance</strong></td>
+              <td>3-Second Checkout with Bluetooth Print</td>
+              <td>Slow loading software causes queues</td>
+            </tr>
+            <tr>
+              <td><strong>Hardware Bundle Price</strong></td>
+              <td>₹4,999 Complete (Printer Included)</td>
+              <td>₹28,000+ proprietary POS terminals</td>
+            </tr>
+            <tr>
+              <td><strong>Offline Operation</strong></td>
+              <td>100% Offline Safeguard</td>
+              <td>Halts when customer Wi-Fi is busy</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ── Trust Badges ────────────────────────────────────────────────── -->
+    <div class="trust-grid">
+      <div class="trust-item"><span class="trust-icon">🛡️</span> 1-Year Hardware Warranty</div>
+      <div class="trust-item"><span class="trust-icon">⚡</span> 10-Min Menu Setup Guarantee</div>
+      <div class="trust-item"><span class="trust-icon">📶</span> 100% Offline Billing Safeguard</div>
+      <div class="trust-item"><span class="trust-icon">⭐</span> 5.0★ Google Verified Ratings</div>
+    </div>
+
+    <!-- ── Pricing Box ─────────────────────────────────────────────────── -->
     <div class="pricing-box">
-      <div class="badge">RECOMMENDED FOR ICE CREAM & DESSERT PARLORS</div>
+      <div class="badge">ALL-IN-ONE STARTER BUNDLE</div>
       <h2>CafeQR Complete Starter Hardware Kit</h2>
       <p style="color: var(--zinc-600); margin-top: 0.5rem;">Everything you need to launch professional billing in 10 minutes</p>
       <div class="price-val">₹4,999 <span style="font-size: 1rem; color: var(--zinc-500); font-weight: normal;">/ all-inclusive</span></div>
       <p style="color: #16A34A; font-weight: 700; margin-bottom: 1.5rem;">✓ Portable 58mm Bluetooth Printer Included + 1-Year Full POS License</p>
       <a href="https://wa.me/917012120844?text=Hi%20CafeQR!%20I%20want%20CafeQR%20POS%20for%20my%20Ice%20Cream%20%2F%20Dessert%20Parlor." target="_blank" class="btn-main" style="padding: 1rem 2rem;">
-        Get Started Today &rarr;
+        Claim Starter Kit for Ice Cream & Dessert Parlors &rarr;
       </a>
     </div>
+
+    <!-- ── FAQ Accordion with Schema.org Rich Snippets ─────────────────── -->
+    <section class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+      
+      <details>
+        <summary>Can I add custom cone types, scoops, and extra toppings easily?</summary>
+        <p>Yes! CafeQR has a powerful modifier engine. When cashiers tap an ice cream item, a quick popup lets them select Single/Double scoop, Waffle Cone or Cup, and add toppings with one touch.</p>
+      </details>
+      <details>
+        <summary>Can it print a separate token for the customer to collect at the scoop bar?</summary>
+        <p>Yes. You can configure CafeQR to print a customer tax receipt and an automated pickup token number for clean queue organization.</p>
+      </details>
+      <details>
+        <summary>What happens if our shop Wi-Fi disconnects during a Sunday rush?</summary>
+        <p>CafeQR operates 100% offline. You can continue punching orders and printing Bluetooth receipts without interruption. All data syncs to the cloud when connection returns.</p>
+      </details>
+      <details>
+        <summary>Does the ₹4,999 starter kit work on an Android tablet or phone?</summary>
+        <p>Yes. CafeQR runs seamlessly on any Android tablet, smartphone, iPad, or Windows PC, connecting wirelessly to the included Bluetooth printer.</p>
+      </details>
+    </section>
   </main>
 
   <footer>

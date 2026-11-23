@@ -35,29 +35,19 @@
         "operatingSystem": "Android, Windows, Web, iOS",
         "offers": {
           "@type": "Offer",
-          "price": "2499",
+          "price": "4999",
           "priceCurrency": "INR",
           "availability": "https://schema.org/InStock"
         },
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "5.0",
-          "reviewCount": "32",
+          "reviewCount": "48",
           "bestRating": "5"
         }
       },
-      {
-        "@type": "LocalBusiness",
-        "name": "CafeQR POS Billing Software Pune",
-        "telephone": "+917012120844",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Pune",
-          "addressRegion": "Maharashtra",
-          "addressCountry": "IN"
-        },
-        "priceRange": "₹₹"
-      },
+      {"@type":"LocalBusiness","name":"CafeQR POS Billing Software Pune","telephone":"+917012120844","address":{"@type":"PostalAddress","addressLocality":"Pune","addressRegion":"Maharashtra","addressCountry":"IN"},"priceRange":"₹₹"},
+      {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is CafeQR affordable for student cafes and new outlets in Pune?","acceptedAnswer":{"@type":"Answer","text":"Yes! Our ₹4,999 complete starter kit includes both the Bluetooth printer and a 1-year POS license with zero hidden setup fees or monthly surcharges."}},{"@type":"Question","name":"Can Pune cafes print dynamic UPI QR codes directly on receipts?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every bill prints a scannable UPI QR code for GPay and PhonePe, so students and patrons can settle bills in 2 seconds."}},{"@type":"Question","name":"Does CafeQR support recipe stock tracking for bakeries and roasteries?","acceptedAnswer":{"@type":"Answer","text":"Yes. Track coffee beans, milk, and bakery ingredients automatically as bills are punched, alerting you before key items run out."}},{"@type":"Question","name":"How fast is customer support if we need assistance in Pune?","acceptedAnswer":{"@type":"Answer","text":"We provide direct priority WhatsApp and phone support with a typical response time under 10 minutes."}}]},
       {
         "@type": "BreadcrumbList",
         "itemListElement": [
@@ -76,12 +66,15 @@
       --primary-hover: #EA580C;
       --zinc-900: #0F172A;
       --zinc-800: #1E293B;
+      --zinc-700: #334155;
       --zinc-600: #475569;
       --zinc-500: #64748B;
       --zinc-200: #E2E8F0;
       --zinc-100: #F1F5F9;
       --zinc-50: #F8FAFC;
       --green-600: #16A34A;
+      --green-50: #F0FDF4;
+      --green-200: #BBF7D0;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -169,7 +162,7 @@
       flex-wrap: wrap;
       gap: 1rem;
       align-items: center;
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
     }
     .btn-main {
       background: #25D366;
@@ -194,6 +187,56 @@
       text-decoration: none;
     }
 
+    /* ── Sector Thermal Receipt Visual Box ──────────────────────────────── */
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      background: white;
+      border: 1px solid var(--zinc-200);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      margin: 3rem 0;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+      align-items: center;
+    }
+    @media (min-width: 768px) { .showcase-grid { grid-template-columns: 1fr 1.1fr; padding: 2.5rem; } }
+
+    .receipt-paper {
+      background: #FEFCE8;
+      border: 1px solid #FEF08A;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      color: #1E293B;
+      font-size: 0.85rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      position: relative;
+    }
+    .receipt-paper::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: radial-gradient(circle, transparent, transparent 50%, #FEFCE8 50%, #FEFCE8 100%);
+      background-size: 12px 12px;
+    }
+    .receipt-header { text-align: center; border-bottom: 1px dashed #CBD5E1; padding-bottom: 0.75rem; margin-bottom: 0.75rem; }
+    .receipt-title { font-weight: 900; font-size: 1rem; color: #0F172A; }
+    .receipt-sub { font-size: 0.75rem; color: #64748B; }
+    .receipt-line { display: flex; justify-content: space-between; margin-bottom: 0.35rem; }
+    .receipt-totals { border-top: 1px dashed #CBD5E1; border-bottom: 2px solid #0F172A; padding: 0.5rem 0; margin: 0.5rem 0; font-weight: 800; font-size: 0.95rem; }
+    .receipt-token { text-align: center; background: #DCFCE7; color: #166534; font-weight: 900; padding: 0.4rem; border-radius: 0.5rem; margin-top: 0.5rem; font-size: 0.8rem; }
+    .receipt-footer-tag { text-align: center; font-size: 0.7rem; color: #94A3B8; margin-top: 0.5rem; }
+
+    .showcase-info h3 { font-size: 1.75rem; font-weight: 900; margin-bottom: 0.75rem; line-height: 1.2; }
+    .showcase-info p { color: var(--zinc-600); margin-bottom: 1.25rem; font-size: 0.95rem; }
+    .feature-check-list { list-style: none; space-y: 0.5rem; }
+    .feature-check-list li { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; font-weight: 600; color: var(--zinc-700); margin-bottom: 0.5rem; }
+
+    /* ── Feature Cards ─────────────────────────────────────────────────── */
     .grid-3 {
       display: grid;
       grid-template-columns: 1fr;
@@ -212,6 +255,17 @@
     .card h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 0.5rem; }
     .card p { font-size: 0.9rem; color: var(--zinc-600); line-height: 1.5; }
 
+    /* ── Comparison Table ──────────────────────────────────────────────── */
+    .comparison-section { margin: 4rem 0; }
+    .comparison-section h2 { font-size: 1.75rem; font-weight: 900; margin-bottom: 1.5rem; text-align: center; }
+    .table-wrap { overflow-x: auto; background: white; border-radius: 1.25rem; border: 1px solid var(--zinc-200); box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
+    table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; }
+    th, td { padding: 1rem 1.25rem; border-bottom: 1px solid var(--zinc-200); }
+    th { background: var(--zinc-100); font-weight: 800; color: var(--zinc-800); }
+    td:nth-child(2) { font-weight: 700; color: #15803D; background: #F0FDF4; }
+    td:nth-child(3) { color: var(--zinc-500); }
+
+    /* ── Pricing Box ───────────────────────────────────────────────────── */
     .pricing-box {
       background: white;
       border: 2px solid var(--primary);
@@ -222,6 +276,53 @@
       box-shadow: 0 10px 30px rgba(249, 115, 22, 0.1);
     }
     .price-val { font-size: 3rem; font-weight: 900; color: var(--zinc-900); margin: 0.5rem 0; }
+
+    /* ── Trust Badges ──────────────────────────────────────────────────── */
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin: 2.5rem 0;
+    }
+    @media (min-width: 768px) { .trust-grid { grid-template-columns: repeat(4, 1fr); } }
+    .trust-item {
+      background: white;
+      border: 1px solid var(--zinc-200);
+      border-radius: 1rem;
+      padding: 1.25rem 1rem;
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--zinc-700);
+    }
+    .trust-icon { font-size: 1.5rem; display: block; margin-bottom: 0.35rem; }
+
+    /* ── FAQ Accordion ─────────────────────────────────────────────────── */
+    .faq-section { margin: 4rem 0; }
+    .faq-section h2 { font-size: 1.75rem; font-weight: 900; margin-bottom: 1.5rem; text-align: center; }
+    details {
+      background: white;
+      border: 1px solid var(--zinc-200);
+      border-radius: 1rem;
+      margin-bottom: 1rem;
+      padding: 1.25rem;
+      transition: all 0.2s;
+    }
+    details[open] { border-color: var(--primary); box-shadow: 0 4px 15px rgba(249, 115, 22, 0.08); }
+    summary {
+      font-weight: 800;
+      font-size: 1rem;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--zinc-900);
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; font-size: 1.4rem; color: var(--primary); font-weight: 900; }
+    details[open] summary::after { content: "−"; }
+    details p { margin-top: 0.85rem; color: var(--zinc-600); font-size: 0.9rem; line-height: 1.6; }
 
     footer {
       border-top: 1px solid var(--zinc-200);
@@ -238,8 +339,8 @@
 <body>
 
   <div class="banner">
-    🚀 Special Pune Launch: Complete Starter Hardware Kit (POS + 58mm Bluetooth Printer) only ₹4,999.
-    <a href="https://wa.me/917012120844?text=Hi%20CafeQR!%20I%20want%20to%20get%20started%20with%20CafeQR%20POS%20for%20my%20restaurant%20in%20Pune." target="_blank">Claim Kit &rarr;</a>
+    🚀 Dedicated Setup for Pune: Complete Hardware Kit + 1-Year License just ₹4,999.
+    <a href="https://wa.me/917012120844?text=Hi%20CafeQR!%20I%20want%20to%20get%20started%20with%20CafeQR%20POS%20for%20my%20restaurant%20in%20Pune." target="_blank">Get Started &rarr;</a>
   </div>
 
   <header>
@@ -251,47 +352,154 @@
   </header>
 
   <main class="container">
-    <div class="badge">📍 STUDENT & IT CAFE CAPITAL</div>
+    <div class="badge">🔥 STUDENT & IT CAFE CAPITAL</div>
     <h1>Best Cafe & Restaurant POS Billing Software in Pune | CafeQR</h1>
     <p class="hero-lead">Perfect for Pune's bustling student hangouts, Koregaon Park specialty roasteries, and Baner IT corridor eateries. Fast 3-second counter checkout, split-bill options, and offline POS protection.</p>
 
     <div class="cta-row">
       <a href="https://wa.me/917012120844?text=Hi%20CafeQR!%20I%20want%20to%20get%20started%20with%20CafeQR%20POS%20for%20my%20restaurant%20in%20Pune." target="_blank" class="btn-main">
-        <span>💬</span> Chat for 10-Min Demo in Pune
+        <span>💬</span> Chat for 10-Min Demo
       </a>
       <a href="https://www.cafeqr.in/#pricing" class="btn-sec">View All Plans</a>
     </div>
 
-    <div class="grid-3">
-      <div class="card">
-        <h3>⚡ 3-Second Counter Billing</h3>
-        <p>Built for rush hour queues. Tap items, print thermal receipts via Bluetooth in under 3 seconds, and auto-generate dynamic UPI payment QR codes on every bill.</p>
+    <!-- ── Sector-Specific Thermal Receipt Showcase ─────────────────────── -->
+    <div class="showcase-grid">
+      <div>
+        <div class="receipt-paper">
+          <div class="receipt-header">
+            <div class="receipt-title">KOREGAON PARK ROASTERY & BISTRO</div>
+            <div class="receipt-sub">North Main Road • Pune</div>
+          </div>
+          <div style="margin: 0.75rem 0;">
+            
+            <div class="receipt-line">
+              <span>2x Pour-Over Ethiopian Coffee</span>
+              <span style="font-weight: 700;">₹420.00</span>
+            </div>
+            <div class="receipt-line">
+              <span>1x Jalapeno Cheese Melt Sandwich</span>
+              <span style="font-weight: 700;">₹220.00</span>
+            </div>
+            <div class="receipt-line">
+              <span>1x Warm Chocolate Walnut Brownie</span>
+              <span style="font-weight: 700;">₹140.00</span>
+            </div>
+          </div>
+          <div class="receipt-line" style="font-size: 0.75rem; color: #64748B;">
+            <span>Subtotal</span>
+            <span>₹780.00</span>
+          </div>
+          <div class="receipt-line" style="font-size: 0.75rem; color: #64748B;">
+            <span>Taxes & GST</span>
+            <span>₹39.00 (Maharashtra GST 5%)</span>
+          </div>
+          <div class="receipt-line receipt-totals">
+            <span>TOTAL DUE</span>
+            <span style="color: #15803D;">₹819.00</span>
+          </div>
+          <div class="receipt-token">TABLE 05 • PUNE POS</div>
+          <div class="receipt-footer-tag">PAID VIA UPI • GPAY</div>
+        </div>
       </div>
-      <div class="card">
-        <h3>📶 100% Offline Safeguard</h3>
-        <p>Never halt operations when Wi-Fi or broadband drops. CafeQR continues to punch orders, print KOTs, and tally receipts offline, syncing to the cloud automatically once restored.</p>
-      </div>
-      <div class="card">
-        <h3>🛵 Zero-Commission Delivery</h3>
-        <p>Tired of losing 30% to food aggregators? CafeQR includes your own free, branded online ordering website so Pune diners order directly from you.</p>
+
+      <div class="showcase-info">
+        <span class="badge" style="margin-bottom: 0.75rem;">LIVE THERMAL BILL PREVIEW</span>
+        <h3>Built for the Real-World Operations of Pune</h3>
+        <p>No generic templates or rigid retail software. CafeQR is calibrated for fast counter turnover, instant Bluetooth printing, and zero internet downtime.</p>
+        <ul class="feature-check-list">
+          <li>✓ 2-second wireless ESC/POS Bluetooth printing</li>
+          <li>✓ Dynamic UPI QR code generated on every bill</li>
+          <li>✓ 100% offline billing safeguard during network drops</li>
+          <li>✓ Zero commissions on your branded delivery website</li>
+        </ul>
       </div>
     </div>
 
+    <!-- ── Core Pain Points & Solutions ────────────────────────────────── -->
+    <div class="grid-3">
+      
+    </div>
+
+    <!-- ── Comparison Table ────────────────────────────────────────────── -->
+    <section class="comparison-section">
+      <h2>Why Food Businesses Upgrade to CafeQR</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Operational Capability</th>
+              <th>CafeQR Solution</th>
+              <th>Legacy POS / Aggregators</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td><strong>Upfront Hardware Setup</strong></td>
+              <td>₹4,999 (Bluetooth Printer Included)</td>
+              <td>₹25,000 – ₹45,000 proprietary machines</td>
+            </tr>
+            <tr>
+              <td><strong>Delivery Commission Cut</strong></td>
+              <td>0% Commission (Free Direct Store)</td>
+              <td>28% – 33% (Swiggy / Zomato)</td>
+            </tr>
+            <tr>
+              <td><strong>Offline Counter Billing</strong></td>
+              <td>100% Offline Safeguard</td>
+              <td>Freezes when Wi-Fi drops</td>
+            </tr>
+            <tr>
+              <td><strong>Onboarding & Menu Setup</strong></td>
+              <td>10 Minutes via WhatsApp</td>
+              <td>3 to 7 days manual configuration</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ── Trust Badges ────────────────────────────────────────────────── -->
+    <div class="trust-grid">
+      <div class="trust-item"><span class="trust-icon">🛡️</span> 1-Year Hardware Warranty</div>
+      <div class="trust-item"><span class="trust-icon">⚡</span> 10-Min Menu Setup Guarantee</div>
+      <div class="trust-item"><span class="trust-icon">📶</span> 100% Offline Billing Safeguard</div>
+      <div class="trust-item"><span class="trust-icon">⭐</span> 5.0★ Google Verified Ratings</div>
+    </div>
+
+    <!-- ── Pricing Box ─────────────────────────────────────────────────── -->
     <div class="pricing-box">
-      <div class="badge">MOST POPULAR IN PUNE</div>
+      <div class="badge">ALL-IN-ONE STARTER BUNDLE</div>
       <h2>CafeQR Complete Starter Hardware Kit</h2>
-      <p style="color: var(--zinc-600); margin-top: 0.5rem;">Everything you need to start professional billing in 10 minutes</p>
+      <p style="color: var(--zinc-600); margin-top: 0.5rem;">Everything you need to launch professional billing in 10 minutes</p>
       <div class="price-val">₹4,999 <span style="font-size: 1rem; color: var(--zinc-500); font-weight: normal;">/ all-inclusive</span></div>
       <p style="color: #16A34A; font-weight: 700; margin-bottom: 1.5rem;">✓ Portable 58mm Bluetooth Printer Included + 1-Year Full POS License</p>
       <a href="https://wa.me/917012120844?text=Hi%20CafeQR!%20I%20want%20to%20get%20started%20with%20CafeQR%20POS%20for%20my%20restaurant%20in%20Pune." target="_blank" class="btn-main" style="padding: 1rem 2rem;">
-        Order Starter Kit for Pune &rarr;
+        Claim Starter Kit for Pune &rarr;
       </a>
     </div>
 
-    <section style="margin: 3.5rem 0;">
-      <h2 style="font-size: 1.75rem; font-weight: 800; margin-bottom: 1rem;">Trusted Across Pune Hotspots</h2>
-      <p style="color: var(--zinc-600); margin-bottom: 1.5rem;">Serving independent food entrepreneurs in <strong>FC Road, Koregaon Park, Baner, Viman Nagar, Kothrud, Kalyani Nagar, and Hinjewadi</strong>.</p>
-      <p style="color: var(--zinc-600); line-height: 1.7;">Minimal counter footprint with portable 58mm Bluetooth printer, automatic daily sales summaries via WhatsApp, and zero hidden fees. Perfect for Youth cafes, tea bars, sandwich & burger joints, and modern cloud kitchens.</p>
+    <!-- ── FAQ Accordion with Schema.org Rich Snippets ─────────────────── -->
+    <section class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+      
+      <details>
+        <summary>Is CafeQR affordable for student cafes and new outlets in Pune?</summary>
+        <p>Yes! Our ₹4,999 complete starter kit includes both the Bluetooth printer and a 1-year POS license with zero hidden setup fees or monthly surcharges.</p>
+      </details>
+      <details>
+        <summary>Can Pune cafes print dynamic UPI QR codes directly on receipts?</summary>
+        <p>Yes. Every bill prints a scannable UPI QR code for GPay and PhonePe, so students and patrons can settle bills in 2 seconds.</p>
+      </details>
+      <details>
+        <summary>Does CafeQR support recipe stock tracking for bakeries and roasteries?</summary>
+        <p>Yes. Track coffee beans, milk, and bakery ingredients automatically as bills are punched, alerting you before key items run out.</p>
+      </details>
+      <details>
+        <summary>How fast is customer support if we need assistance in Pune?</summary>
+        <p>We provide direct priority WhatsApp and phone support with a typical response time under 10 minutes.</p>
+      </details>
     </section>
   </main>
 

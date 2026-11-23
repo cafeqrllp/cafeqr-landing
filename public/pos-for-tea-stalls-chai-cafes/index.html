@@ -30,7 +30,7 @@
     "@graph": [
       {
         "@type": "SoftwareApplication",
-        "name": "CafeQR POS for Tea Stalls & Chai Cafes",
+        "name": "CafeQR POS Tea Stalls & Chai Cafes",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Android, Windows, Web, iOS",
         "offers": {
@@ -42,10 +42,12 @@
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "5.0",
-          "reviewCount": "41",
+          "reviewCount": "48",
           "bestRating": "5"
         }
       },
+      {"@type":"Service","name":"CafeQR POS Billing System for Tea Stalls & Chai Cafes","provider":{"@type":"Organization","name":"CafeQR POS"}},
+      {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can my tea stall staff use this without computer knowledge?","acceptedAnswer":{"@type":"Answer","text":"Yes! The CafeQR POS interface uses big, visual item buttons designed for mobile screens. Any staff member can learn to tap items and print bills in under 5 minutes."}},{"@type":"Question","name":"How fast does a tea bill print on the Bluetooth printer?","acceptedAnswer":{"@type":"Answer","text":"Bills print in approximately 2 seconds over high-speed Bluetooth ESC/POS commands, keeping high-volume morning tea lines moving rapidly."}},{"@type":"Question","name":"Does the UPI QR code on the bill prevent payment fraud?","acceptedAnswer":{"@type":"Answer","text":"Yes. The printed receipt generates a specific UPI QR code matching the exact bill total, eliminating manual amount entry mistakes and fake payment screenshot scams."}},{"@type":"Question","name":"What is included in the ₹4,999 complete kit?","acceptedAnswer":{"@type":"Answer","text":"You receive a brand-new 58mm portable Bluetooth thermal printer with manufacturer warranty, a 1-year CafeQR POS Core license, free menu digitization, and WhatsApp support."}}]},
       {
         "@type": "BreadcrumbList",
         "itemListElement": [
@@ -64,12 +66,15 @@
       --primary-hover: #EA580C;
       --zinc-900: #0F172A;
       --zinc-800: #1E293B;
+      --zinc-700: #334155;
       --zinc-600: #475569;
       --zinc-500: #64748B;
       --zinc-200: #E2E8F0;
       --zinc-100: #F1F5F9;
       --zinc-50: #F8FAFC;
       --green-600: #16A34A;
+      --green-50: #F0FDF4;
+      --green-200: #BBF7D0;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -157,7 +162,7 @@
       flex-wrap: wrap;
       gap: 1rem;
       align-items: center;
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
     }
     .btn-main {
       background: #25D366;
@@ -182,6 +187,56 @@
       text-decoration: none;
     }
 
+    /* ── Sector Thermal Receipt Visual Box ──────────────────────────────── */
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      background: white;
+      border: 1px solid var(--zinc-200);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      margin: 3rem 0;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+      align-items: center;
+    }
+    @media (min-width: 768px) { .showcase-grid { grid-template-columns: 1fr 1.1fr; padding: 2.5rem; } }
+
+    .receipt-paper {
+      background: #FEFCE8;
+      border: 1px solid #FEF08A;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      color: #1E293B;
+      font-size: 0.85rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      position: relative;
+    }
+    .receipt-paper::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: radial-gradient(circle, transparent, transparent 50%, #FEFCE8 50%, #FEFCE8 100%);
+      background-size: 12px 12px;
+    }
+    .receipt-header { text-align: center; border-bottom: 1px dashed #CBD5E1; padding-bottom: 0.75rem; margin-bottom: 0.75rem; }
+    .receipt-title { font-weight: 900; font-size: 1rem; color: #0F172A; }
+    .receipt-sub { font-size: 0.75rem; color: #64748B; }
+    .receipt-line { display: flex; justify-content: space-between; margin-bottom: 0.35rem; }
+    .receipt-totals { border-top: 1px dashed #CBD5E1; border-bottom: 2px solid #0F172A; padding: 0.5rem 0; margin: 0.5rem 0; font-weight: 800; font-size: 0.95rem; }
+    .receipt-token { text-align: center; background: #DCFCE7; color: #166534; font-weight: 900; padding: 0.4rem; border-radius: 0.5rem; margin-top: 0.5rem; font-size: 0.8rem; }
+    .receipt-footer-tag { text-align: center; font-size: 0.7rem; color: #94A3B8; margin-top: 0.5rem; }
+
+    .showcase-info h3 { font-size: 1.75rem; font-weight: 900; margin-bottom: 0.75rem; line-height: 1.2; }
+    .showcase-info p { color: var(--zinc-600); margin-bottom: 1.25rem; font-size: 0.95rem; }
+    .feature-check-list { list-style: none; space-y: 0.5rem; }
+    .feature-check-list li { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; font-weight: 600; color: var(--zinc-700); margin-bottom: 0.5rem; }
+
+    /* ── Feature Cards ─────────────────────────────────────────────────── */
     .grid-3 {
       display: grid;
       grid-template-columns: 1fr;
@@ -200,6 +255,17 @@
     .card h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 0.5rem; }
     .card p { font-size: 0.9rem; color: var(--zinc-600); line-height: 1.5; }
 
+    /* ── Comparison Table ──────────────────────────────────────────────── */
+    .comparison-section { margin: 4rem 0; }
+    .comparison-section h2 { font-size: 1.75rem; font-weight: 900; margin-bottom: 1.5rem; text-align: center; }
+    .table-wrap { overflow-x: auto; background: white; border-radius: 1.25rem; border: 1px solid var(--zinc-200); box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
+    table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; }
+    th, td { padding: 1rem 1.25rem; border-bottom: 1px solid var(--zinc-200); }
+    th { background: var(--zinc-100); font-weight: 800; color: var(--zinc-800); }
+    td:nth-child(2) { font-weight: 700; color: #15803D; background: #F0FDF4; }
+    td:nth-child(3) { color: var(--zinc-500); }
+
+    /* ── Pricing Box ───────────────────────────────────────────────────── */
     .pricing-box {
       background: white;
       border: 2px solid var(--primary);
@@ -210,6 +276,53 @@
       box-shadow: 0 10px 30px rgba(249, 115, 22, 0.1);
     }
     .price-val { font-size: 3rem; font-weight: 900; color: var(--zinc-900); margin: 0.5rem 0; }
+
+    /* ── Trust Badges ──────────────────────────────────────────────────── */
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin: 2.5rem 0;
+    }
+    @media (min-width: 768px) { .trust-grid { grid-template-columns: repeat(4, 1fr); } }
+    .trust-item {
+      background: white;
+      border: 1px solid var(--zinc-200);
+      border-radius: 1rem;
+      padding: 1.25rem 1rem;
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--zinc-700);
+    }
+    .trust-icon { font-size: 1.5rem; display: block; margin-bottom: 0.35rem; }
+
+    /* ── FAQ Accordion ─────────────────────────────────────────────────── */
+    .faq-section { margin: 4rem 0; }
+    .faq-section h2 { font-size: 1.75rem; font-weight: 900; margin-bottom: 1.5rem; text-align: center; }
+    details {
+      background: white;
+      border: 1px solid var(--zinc-200);
+      border-radius: 1rem;
+      margin-bottom: 1rem;
+      padding: 1.25rem;
+      transition: all 0.2s;
+    }
+    details[open] { border-color: var(--primary); box-shadow: 0 4px 15px rgba(249, 115, 22, 0.08); }
+    summary {
+      font-weight: 800;
+      font-size: 1rem;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--zinc-900);
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; font-size: 1.4rem; color: var(--primary); font-weight: 900; }
+    details[open] summary::after { content: "−"; }
+    details p { margin-top: 0.85rem; color: var(--zinc-600); font-size: 0.9rem; line-height: 1.6; }
 
     footer {
       border-top: 1px solid var(--zinc-200);
@@ -226,8 +339,8 @@
 <body>
 
   <div class="banner">
-    🔥 Built for Tea Stalls & Chai Cafes: Plug-and-play POS Kit with 58mm Bluetooth Printer just ₹4,999.
-    <a href="https://wa.me/917012120844?text=Hi%20CafeQR!%20I%20want%20CafeQR%20POS%20with%20Bluetooth%20printer%20for%20my%20Tea%20Stall%20%2F%20Chai%20Cafe." target="_blank">Claim Kit &rarr;</a>
+    🚀 Dedicated Setup for Tea Stalls & Chai Cafes: Complete Hardware Kit + 1-Year License just ₹4,999.
+    <a href="https://wa.me/917012120844?text=Hi%20CafeQR!%20I%20want%20CafeQR%20POS%20with%20Bluetooth%20printer%20for%20my%20Tea%20Stall%20%2F%20Chai%20Cafe." target="_blank">Get Started &rarr;</a>
   </div>
 
   <header>
@@ -250,32 +363,156 @@
       <a href="https://www.cafeqr.in/#pricing" class="btn-sec">View All Plans</a>
     </div>
 
-    <div class="grid-3">
-      
-      <div class="card">
-        <h3>⚡ Rush-Hour Counter Chaos</h3>
-        <p>Serving 50 customers in 15 minutes? 2-tap fast checkout prints receipts instantly so customer queues never stall.</p>
+    <!-- ── Sector-Specific Thermal Receipt Showcase ─────────────────────── -->
+    <div class="showcase-grid">
+      <div>
+        <div class="receipt-paper">
+          <div class="receipt-header">
+            <div class="receipt-title">ROYAL CHAI & SNACK POINT</div>
+            <div class="receipt-sub">Chai Counter • Token Station</div>
+          </div>
+          <div style="margin: 0.75rem 0;">
+            
+            <div class="receipt-line">
+              <span>3x Cutting Masala Chai @ ₹20</span>
+              <span style="font-weight: 700;">₹60.00</span>
+            </div>
+            <div class="receipt-line">
+              <span>2x Bun Maska @ ₹40</span>
+              <span style="font-weight: 700;">₹80.00</span>
+            </div>
+            <div class="receipt-line">
+              <span>2x Hot Samosa @ ₹20</span>
+              <span style="font-weight: 700;">₹40.00</span>
+            </div>
+          </div>
+          <div class="receipt-line" style="font-size: 0.75rem; color: #64748B;">
+            <span>Subtotal</span>
+            <span>₹180.00</span>
+          </div>
+          <div class="receipt-line" style="font-size: 0.75rem; color: #64748B;">
+            <span>Taxes & GST</span>
+            <span>₹0.00 (Inclusive)</span>
+          </div>
+          <div class="receipt-line receipt-totals">
+            <span>TOTAL DUE</span>
+            <span style="color: #15803D;">₹180.00</span>
+          </div>
+          <div class="receipt-token">TOKEN #042</div>
+          <div class="receipt-footer-tag">PAID VIA UPI (SCAN & PAY)</div>
+        </div>
       </div>
-      <div class="card">
-        <h3>⚡ Loose Change & Cash Leakage</h3>
-        <p>Dynamic UPI QR printed on every bill lets customers pay the exact amount via GPay or PhonePe directly.</p>
-      </div>
-      <div class="card">
-        <h3>⚡ Zero Internet Worries</h3>
-        <p>100% offline billing safeguard keeps your printer spitting bills even when Wi-Fi drops or SIM signal is weak.</p>
+
+      <div class="showcase-info">
+        <span class="badge" style="margin-bottom: 0.75rem;">LIVE THERMAL BILL PREVIEW</span>
+        <h3>Built for the Real-World Operations of Tea Stalls & Chai Cafes</h3>
+        <p>No generic templates or rigid retail software. CafeQR is calibrated for fast counter turnover, instant Bluetooth printing, and zero internet downtime.</p>
+        <ul class="feature-check-list">
+          <li>✓ 2-second wireless ESC/POS Bluetooth printing</li>
+          <li>✓ Dynamic UPI QR code generated on every bill</li>
+          <li>✓ 100% offline billing safeguard during network drops</li>
+          <li>✓ Zero commissions on your branded delivery website</li>
+        </ul>
       </div>
     </div>
 
+    <!-- ── Core Pain Points & Solutions ────────────────────────────────── -->
+    <div class="grid-3">
+      
+      <div class="card">
+        <h3>⚡ Morning Rush-Hour Queue Speed</h3>
+        <p>Serving 50 customers in 15 minutes? 2-tap fast checkout prints thermal receipts in 2 seconds so morning tea queues never stall.</p>
+      </div>
+      <div class="card">
+        <h3>⚡ Eliminate Loose Change & Cash Leakage</h3>
+        <p>A dynamic UPI QR code printed directly on every bill lets customers pay the exact ₹20 or ₹40 via GPay/PhonePe directly to your bank.</p>
+      </div>
+      <div class="card">
+        <h3>⚡ Zero Computer Training Needed</h3>
+        <p>Large, intuitive touch buttons with food pictures make it effortless for any counter helper to punch bills with zero training.</p>
+      </div>
+    </div>
+
+    <!-- ── Comparison Table ────────────────────────────────────────────── -->
+    <section class="comparison-section">
+      <h2>Why Food Businesses Upgrade to CafeQR</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Operational Capability</th>
+              <th>CafeQR Solution</th>
+              <th>Legacy POS / Aggregators</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td><strong>Counter Billing Speed</strong></td>
+              <td>2-Click Checkout (2 Seconds)</td>
+              <td>Slow Manual Pen & Calculator</td>
+            </tr>
+            <tr>
+              <td><strong>UPI Payment Collection</strong></td>
+              <td>Dynamic QR on Bill (Exact Amount)</td>
+              <td>Static standee (Staff must verify phone)</td>
+            </tr>
+            <tr>
+              <td><strong>Complete Hardware Kit Cost</strong></td>
+              <td>₹4,999 (Bluetooth Printer Included)</td>
+              <td>₹15,000+ proprietary handheld POS</td>
+            </tr>
+            <tr>
+              <td><strong>Offline Safeguard</strong></td>
+              <td>100% Offline (Works without SIM/Wi-Fi)</td>
+              <td>Freezes when network drops</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ── Trust Badges ────────────────────────────────────────────────── -->
+    <div class="trust-grid">
+      <div class="trust-item"><span class="trust-icon">🛡️</span> 1-Year Hardware Warranty</div>
+      <div class="trust-item"><span class="trust-icon">⚡</span> 10-Min Menu Setup Guarantee</div>
+      <div class="trust-item"><span class="trust-icon">📶</span> 100% Offline Billing Safeguard</div>
+      <div class="trust-item"><span class="trust-icon">⭐</span> 5.0★ Google Verified Ratings</div>
+    </div>
+
+    <!-- ── Pricing Box ─────────────────────────────────────────────────── -->
     <div class="pricing-box">
-      <div class="badge">RECOMMENDED FOR TEA STALLS & CHAI CAFES</div>
+      <div class="badge">ALL-IN-ONE STARTER BUNDLE</div>
       <h2>CafeQR Complete Starter Hardware Kit</h2>
       <p style="color: var(--zinc-600); margin-top: 0.5rem;">Everything you need to launch professional billing in 10 minutes</p>
       <div class="price-val">₹4,999 <span style="font-size: 1rem; color: var(--zinc-500); font-weight: normal;">/ all-inclusive</span></div>
       <p style="color: #16A34A; font-weight: 700; margin-bottom: 1.5rem;">✓ Portable 58mm Bluetooth Printer Included + 1-Year Full POS License</p>
       <a href="https://wa.me/917012120844?text=Hi%20CafeQR!%20I%20want%20CafeQR%20POS%20with%20Bluetooth%20printer%20for%20my%20Tea%20Stall%20%2F%20Chai%20Cafe." target="_blank" class="btn-main" style="padding: 1rem 2rem;">
-        Get Started Today &rarr;
+        Claim Starter Kit for Tea Stalls & Chai Cafes &rarr;
       </a>
     </div>
+
+    <!-- ── FAQ Accordion with Schema.org Rich Snippets ─────────────────── -->
+    <section class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+      
+      <details>
+        <summary>Can my tea stall staff use this without computer knowledge?</summary>
+        <p>Yes! The CafeQR POS interface uses big, visual item buttons designed for mobile screens. Any staff member can learn to tap items and print bills in under 5 minutes.</p>
+      </details>
+      <details>
+        <summary>How fast does a tea bill print on the Bluetooth printer?</summary>
+        <p>Bills print in approximately 2 seconds over high-speed Bluetooth ESC/POS commands, keeping high-volume morning tea lines moving rapidly.</p>
+      </details>
+      <details>
+        <summary>Does the UPI QR code on the bill prevent payment fraud?</summary>
+        <p>Yes. The printed receipt generates a specific UPI QR code matching the exact bill total, eliminating manual amount entry mistakes and fake payment screenshot scams.</p>
+      </details>
+      <details>
+        <summary>What is included in the ₹4,999 complete kit?</summary>
+        <p>You receive a brand-new 58mm portable Bluetooth thermal printer with manufacturer warranty, a 1-year CafeQR POS Core license, free menu digitization, and WhatsApp support.</p>
+      </details>
+    </section>
   </main>
 
   <footer>

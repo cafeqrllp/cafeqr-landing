@@ -30,7 +30,7 @@
     "@graph": [
       {
         "@type": "SoftwareApplication",
-        "name": "CafeQR POS for Cloud Kitchens & Delivery Brands",
+        "name": "CafeQR POS Cloud Kitchens & Delivery Brands",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Android, Windows, Web, iOS",
         "offers": {
@@ -42,10 +42,12 @@
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "5.0",
-          "reviewCount": "41",
+          "reviewCount": "48",
           "bestRating": "5"
         }
       },
+      {"@type":"Service","name":"CafeQR POS Billing System for Cloud Kitchens & Delivery Brands","provider":{"@type":"Organization","name":"CafeQR POS"}},
+      {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does the free online ordering website work?","acceptedAnswer":{"@type":"Answer","text":"CafeQR generates a branded mobile ordering website for your cloud kitchen with your logo, menu, and payment gateway. Diners order directly from you without paying Swiggy/Zomato commission cuts."}},{"@type":"Question","name":"Can I manage 4 different virtual food brands on one POS?","acceptedAnswer":{"@type":"Answer","text":"Yes! You can host multiple distinct food concepts from a single dashboard, with orders neatly labeled and routed to their respective kitchen prep stations."}},{"@type":"Question","name":"Can I print kitchen tickets (KOT) automatically when an order arrives?","acceptedAnswer":{"@type":"Answer","text":"Yes. Incoming delivery orders instantly trigger an automatic kitchen order ticket (KOT) on your thermal printer or kitchen tablet screen."}},{"@type":"Question","name":"How do I market my direct website to customers?","acceptedAnswer":{"@type":"Answer","text":"Every delivery package can include a small flyer or printed bill sticker offering 10% off their next direct order via your CafeQR website, converting aggregator users into direct repeat buyers."}}]},
       {
         "@type": "BreadcrumbList",
         "itemListElement": [
@@ -64,12 +66,15 @@
       --primary-hover: #EA580C;
       --zinc-900: #0F172A;
       --zinc-800: #1E293B;
+      --zinc-700: #334155;
       --zinc-600: #475569;
       --zinc-500: #64748B;
       --zinc-200: #E2E8F0;
       --zinc-100: #F1F5F9;
       --zinc-50: #F8FAFC;
       --green-600: #16A34A;
+      --green-50: #F0FDF4;
+      --green-200: #BBF7D0;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -157,7 +162,7 @@
       flex-wrap: wrap;
       gap: 1rem;
       align-items: center;
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
     }
     .btn-main {
       background: #25D366;
@@ -182,6 +187,56 @@
       text-decoration: none;
     }
 
+    /* ── Sector Thermal Receipt Visual Box ──────────────────────────────── */
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      background: white;
+      border: 1px solid var(--zinc-200);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      margin: 3rem 0;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+      align-items: center;
+    }
+    @media (min-width: 768px) { .showcase-grid { grid-template-columns: 1fr 1.1fr; padding: 2.5rem; } }
+
+    .receipt-paper {
+      background: #FEFCE8;
+      border: 1px solid #FEF08A;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      color: #1E293B;
+      font-size: 0.85rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      position: relative;
+    }
+    .receipt-paper::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: radial-gradient(circle, transparent, transparent 50%, #FEFCE8 50%, #FEFCE8 100%);
+      background-size: 12px 12px;
+    }
+    .receipt-header { text-align: center; border-bottom: 1px dashed #CBD5E1; padding-bottom: 0.75rem; margin-bottom: 0.75rem; }
+    .receipt-title { font-weight: 900; font-size: 1rem; color: #0F172A; }
+    .receipt-sub { font-size: 0.75rem; color: #64748B; }
+    .receipt-line { display: flex; justify-content: space-between; margin-bottom: 0.35rem; }
+    .receipt-totals { border-top: 1px dashed #CBD5E1; border-bottom: 2px solid #0F172A; padding: 0.5rem 0; margin: 0.5rem 0; font-weight: 800; font-size: 0.95rem; }
+    .receipt-token { text-align: center; background: #DCFCE7; color: #166534; font-weight: 900; padding: 0.4rem; border-radius: 0.5rem; margin-top: 0.5rem; font-size: 0.8rem; }
+    .receipt-footer-tag { text-align: center; font-size: 0.7rem; color: #94A3B8; margin-top: 0.5rem; }
+
+    .showcase-info h3 { font-size: 1.75rem; font-weight: 900; margin-bottom: 0.75rem; line-height: 1.2; }
+    .showcase-info p { color: var(--zinc-600); margin-bottom: 1.25rem; font-size: 0.95rem; }
+    .feature-check-list { list-style: none; space-y: 0.5rem; }
+    .feature-check-list li { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; font-weight: 600; color: var(--zinc-700); margin-bottom: 0.5rem; }
+
+    /* ── Feature Cards ─────────────────────────────────────────────────── */
     .grid-3 {
       display: grid;
       grid-template-columns: 1fr;
@@ -200,6 +255,17 @@
     .card h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 0.5rem; }
     .card p { font-size: 0.9rem; color: var(--zinc-600); line-height: 1.5; }
 
+    /* ── Comparison Table ──────────────────────────────────────────────── */
+    .comparison-section { margin: 4rem 0; }
+    .comparison-section h2 { font-size: 1.75rem; font-weight: 900; margin-bottom: 1.5rem; text-align: center; }
+    .table-wrap { overflow-x: auto; background: white; border-radius: 1.25rem; border: 1px solid var(--zinc-200); box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
+    table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; }
+    th, td { padding: 1rem 1.25rem; border-bottom: 1px solid var(--zinc-200); }
+    th { background: var(--zinc-100); font-weight: 800; color: var(--zinc-800); }
+    td:nth-child(2) { font-weight: 700; color: #15803D; background: #F0FDF4; }
+    td:nth-child(3) { color: var(--zinc-500); }
+
+    /* ── Pricing Box ───────────────────────────────────────────────────── */
     .pricing-box {
       background: white;
       border: 2px solid var(--primary);
@@ -210,6 +276,53 @@
       box-shadow: 0 10px 30px rgba(249, 115, 22, 0.1);
     }
     .price-val { font-size: 3rem; font-weight: 900; color: var(--zinc-900); margin: 0.5rem 0; }
+
+    /* ── Trust Badges ──────────────────────────────────────────────────── */
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin: 2.5rem 0;
+    }
+    @media (min-width: 768px) { .trust-grid { grid-template-columns: repeat(4, 1fr); } }
+    .trust-item {
+      background: white;
+      border: 1px solid var(--zinc-200);
+      border-radius: 1rem;
+      padding: 1.25rem 1rem;
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--zinc-700);
+    }
+    .trust-icon { font-size: 1.5rem; display: block; margin-bottom: 0.35rem; }
+
+    /* ── FAQ Accordion ─────────────────────────────────────────────────── */
+    .faq-section { margin: 4rem 0; }
+    .faq-section h2 { font-size: 1.75rem; font-weight: 900; margin-bottom: 1.5rem; text-align: center; }
+    details {
+      background: white;
+      border: 1px solid var(--zinc-200);
+      border-radius: 1rem;
+      margin-bottom: 1rem;
+      padding: 1.25rem;
+      transition: all 0.2s;
+    }
+    details[open] { border-color: var(--primary); box-shadow: 0 4px 15px rgba(249, 115, 22, 0.08); }
+    summary {
+      font-weight: 800;
+      font-size: 1rem;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--zinc-900);
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; font-size: 1.4rem; color: var(--primary); font-weight: 900; }
+    details[open] summary::after { content: "−"; }
+    details p { margin-top: 0.85rem; color: var(--zinc-600); font-size: 0.9rem; line-height: 1.6; }
 
     footer {
       border-top: 1px solid var(--zinc-200);
@@ -226,8 +339,8 @@
 <body>
 
   <div class="banner">
-    🔥 Built for Cloud Kitchens & Delivery Brands: Plug-and-play POS Kit with 58mm Bluetooth Printer just ₹4,999.
-    <a href="https://wa.me/917012120844?text=Hi%20CafeQR!%20I%20want%20CafeQR%20POS%20and%20free%20delivery%20store%20for%20my%20Cloud%20Kitchen." target="_blank">Claim Kit &rarr;</a>
+    🚀 Dedicated Setup for Cloud Kitchens & Delivery Brands: Complete Hardware Kit + 1-Year License just ₹4,999.
+    <a href="https://wa.me/917012120844?text=Hi%20CafeQR!%20I%20want%20CafeQR%20POS%20and%20free%20delivery%20store%20for%20my%20Cloud%20Kitchen." target="_blank">Get Started &rarr;</a>
   </div>
 
   <header>
@@ -250,32 +363,156 @@
       <a href="https://www.cafeqr.in/#pricing" class="btn-sec">View All Plans</a>
     </div>
 
+    <!-- ── Sector-Specific Thermal Receipt Showcase ─────────────────────── -->
+    <div class="showcase-grid">
+      <div>
+        <div class="receipt-paper">
+          <div class="receipt-header">
+            <div class="receipt-title">CLOUD KITCHEN DIRECT ORDER #302</div>
+            <div class="receipt-sub">The Biryani Co. • Online Delivery</div>
+          </div>
+          <div style="margin: 0.75rem 0;">
+            
+            <div class="receipt-line">
+              <span>1x Hyderabadi Dum Biryani Combo</span>
+              <span style="font-weight: 700;">₹299.00</span>
+            </div>
+            <div class="receipt-line">
+              <span>2x Garlic Naan with Butter</span>
+              <span style="font-weight: 700;">₹70.00</span>
+            </div>
+            <div class="receipt-line">
+              <span>1x Gulab Jamun (Pack of 2)</span>
+              <span style="font-weight: 700;">₹60.00</span>
+            </div>
+          </div>
+          <div class="receipt-line" style="font-size: 0.75rem; color: #64748B;">
+            <span>Subtotal</span>
+            <span>₹429.00</span>
+          </div>
+          <div class="receipt-line" style="font-size: 0.75rem; color: #64748B;">
+            <span>Taxes & GST</span>
+            <span>₹21.45 (GST 5%)</span>
+          </div>
+          <div class="receipt-line receipt-totals">
+            <span>TOTAL DUE</span>
+            <span style="color: #15803D;">₹450.45</span>
+          </div>
+          <div class="receipt-token">DIRECT WEB ORDER</div>
+          <div class="receipt-footer-tag">PREPAID ONLINE • 0% AGGREGATOR COMMISSION</div>
+        </div>
+      </div>
+
+      <div class="showcase-info">
+        <span class="badge" style="margin-bottom: 0.75rem;">LIVE THERMAL BILL PREVIEW</span>
+        <h3>Built for the Real-World Operations of Cloud Kitchens & Delivery Brands</h3>
+        <p>No generic templates or rigid retail software. CafeQR is calibrated for fast counter turnover, instant Bluetooth printing, and zero internet downtime.</p>
+        <ul class="feature-check-list">
+          <li>✓ 2-second wireless ESC/POS Bluetooth printing</li>
+          <li>✓ Dynamic UPI QR code generated on every bill</li>
+          <li>✓ 100% offline billing safeguard during network drops</li>
+          <li>✓ Zero commissions on your branded delivery website</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ── Core Pain Points & Solutions ────────────────────────────────── -->
     <div class="grid-3">
       
       <div class="card">
         <h3>⚡ Stop 30% Aggregator Commission Bleed</h3>
-        <p>Every order through your free CafeQR delivery website goes straight to your bank account with zero platform cuts.</p>
+        <p>Every order through your free CafeQR delivery store goes straight to your bank account with zero platform cuts, saving ₹40,000+ monthly.</p>
       </div>
       <div class="card">
-        <h3>⚡ Multi-Brand Menu Routing</h3>
-        <p>Run 2, 3, or 5 virtual food brands from one kitchen. Manage all orders and kitchen tickets on a single screen.</p>
+        <h3>⚡ Manage Multiple Virtual Brands on 1 Screen</h3>
+        <p>Run 2, 3, or 5 virtual food concepts from a single kitchen space. Manage all incoming menus and tickets on one master tablet.</p>
       </div>
       <div class="card">
-        <h3>⚡ Direct WhatsApp Customer Marketing</h3>
-        <p>Own your customer phone numbers. Send automated re-order offers and festival discounts directly via WhatsApp.</p>
+        <h3>⚡ Direct WhatsApp Customer Retention</h3>
+        <p>Own your customer phone numbers and ordering history. Send automated weekend discount coupons directly to their WhatsApp.</p>
       </div>
     </div>
 
+    <!-- ── Comparison Table ────────────────────────────────────────────── -->
+    <section class="comparison-section">
+      <h2>Why Food Businesses Upgrade to CafeQR</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Operational Capability</th>
+              <th>CafeQR Solution</th>
+              <th>Legacy POS / Aggregators</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td><strong>Platform Commission Cut</strong></td>
+              <td>0% Commission (Keep 100% Revenue)</td>
+              <td>25% – 33% (Swiggy / Zomato)</td>
+            </tr>
+            <tr>
+              <td><strong>Customer Data Ownership</strong></td>
+              <td>100% Direct Phone & Order Records</td>
+              <td>Masked customer phone numbers</td>
+            </tr>
+            <tr>
+              <td><strong>Multi-Brand Kitchen KOT</strong></td>
+              <td>Single Tablet Centralized Hub</td>
+              <td>Cluttered desk with 4 separate tablets</td>
+            </tr>
+            <tr>
+              <td><strong>Software Pricing</strong></td>
+              <td>₹2,499/year (or ₹4,999 with printer)</td>
+              <td>₹25,000+ high annual POS lock-ins</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ── Trust Badges ────────────────────────────────────────────────── -->
+    <div class="trust-grid">
+      <div class="trust-item"><span class="trust-icon">🛡️</span> 1-Year Hardware Warranty</div>
+      <div class="trust-item"><span class="trust-icon">⚡</span> 10-Min Menu Setup Guarantee</div>
+      <div class="trust-item"><span class="trust-icon">📶</span> 100% Offline Billing Safeguard</div>
+      <div class="trust-item"><span class="trust-icon">⭐</span> 5.0★ Google Verified Ratings</div>
+    </div>
+
+    <!-- ── Pricing Box ─────────────────────────────────────────────────── -->
     <div class="pricing-box">
-      <div class="badge">RECOMMENDED FOR CLOUD KITCHENS & DELIVERY BRANDS</div>
+      <div class="badge">ALL-IN-ONE STARTER BUNDLE</div>
       <h2>CafeQR Complete Starter Hardware Kit</h2>
       <p style="color: var(--zinc-600); margin-top: 0.5rem;">Everything you need to launch professional billing in 10 minutes</p>
       <div class="price-val">₹4,999 <span style="font-size: 1rem; color: var(--zinc-500); font-weight: normal;">/ all-inclusive</span></div>
       <p style="color: #16A34A; font-weight: 700; margin-bottom: 1.5rem;">✓ Portable 58mm Bluetooth Printer Included + 1-Year Full POS License</p>
       <a href="https://wa.me/917012120844?text=Hi%20CafeQR!%20I%20want%20CafeQR%20POS%20and%20free%20delivery%20store%20for%20my%20Cloud%20Kitchen." target="_blank" class="btn-main" style="padding: 1rem 2rem;">
-        Get Started Today &rarr;
+        Claim Starter Kit for Cloud Kitchens & Delivery Brands &rarr;
       </a>
     </div>
+
+    <!-- ── FAQ Accordion with Schema.org Rich Snippets ─────────────────── -->
+    <section class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+      
+      <details>
+        <summary>How does the free online ordering website work?</summary>
+        <p>CafeQR generates a branded mobile ordering website for your cloud kitchen with your logo, menu, and payment gateway. Diners order directly from you without paying Swiggy/Zomato commission cuts.</p>
+      </details>
+      <details>
+        <summary>Can I manage 4 different virtual food brands on one POS?</summary>
+        <p>Yes! You can host multiple distinct food concepts from a single dashboard, with orders neatly labeled and routed to their respective kitchen prep stations.</p>
+      </details>
+      <details>
+        <summary>Can I print kitchen tickets (KOT) automatically when an order arrives?</summary>
+        <p>Yes. Incoming delivery orders instantly trigger an automatic kitchen order ticket (KOT) on your thermal printer or kitchen tablet screen.</p>
+      </details>
+      <details>
+        <summary>How do I market my direct website to customers?</summary>
+        <p>Every delivery package can include a small flyer or printed bill sticker offering 10% off their next direct order via your CafeQR website, converting aggregator users into direct repeat buyers.</p>
+      </details>
+    </section>
   </main>
 
   <footer>
