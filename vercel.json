@@ -39,7 +39,7 @@
   ],
   "rewrites": [
     {
-      "source": "/((?!pos-for-restaurants|pos-for-cafes|pos-for-bakeries|pos-for-food-trucks|bluetooth-thermal-printer-billing|blog|vs|compare|pos-billing-software-kochi|pos-billing-software-bangalore|pos-billing-software-dubai).*)",
+      "source": "/((?!pos-for-|pos-billing-software-|bluetooth-thermal-printer-billing|blog|vs|compare).*)",
       "destination": "/index.html"
     }
   ]

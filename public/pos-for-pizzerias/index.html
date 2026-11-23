@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Pizzeria POS Billing Software with Kitchen Display & Modifiers | CafeQR</title>
+  <meta name="description" content="Specialized POS billing software for pizza shops and Italian cafes. Half-and-half toppings, crust choices, multi-deck oven KOT tickets, and online ordering.">
+  <meta name="keywords" content="pizza billing software, pizzeria POS system, pizza restaurant KOT software, pizza delivery website generator, CafeQR pizzeria">
+  <link rel="canonical" href="https://www.cafeqr.in/pos-for-pizzerias/">
+  <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CafeQR POS ERP">
+  <meta property="og:url" content="https://www.cafeqr.in/pos-for-pizzerias/">
+  <meta property="og:title" content="Best Pizzeria & Pizza Restaurant POS Software | CafeQR">
+  <meta property="og:description" content="Specialized POS billing software for pizza shops and Italian cafes. Half-and-half toppings, crust choices, multi-deck oven KOT tickets, and online ordering.">
+  <meta property="og:image" content="https://www.cafeqr.in/logo.png">
+
+  <!-- Mobile & Icons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" href="/logo.png">
+  <link rel="apple-touch-icon" href="/logo.png">
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "CafeQR POS for Pizzerias & Italian Cafes",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Android, Windows, Web, iOS",
+        "offers": {
+          "@type": "Offer",
+          "price": "4999",
+          "priceCurrency": "INR",
+          "availability": "https://schema.org/InStock"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "reviewCount": "41",
+          "bestRating": "5"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.cafeqr.in/" },
+          { "@type": "ListItem", "position": 2, "name": "Solutions", "item": "https://www.cafeqr.in/compare/" },
+          { "@type": "ListItem", "position": 3, "name": "Pizzerias & Italian Cafes", "item": "https://www.cafeqr.in/pos-for-pizzerias/" }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --primary: #F97316;
+      --primary-hover: #EA580C;
+      --zinc-900: #0F172A;
+      --zinc-800: #1E293B;
+      --zinc-600: #475569;
+      --zinc-500: #64748B;
+      --zinc-200: #E2E8F0;
+      --zinc-100: #F1F5F9;
+      --zinc-50: #F8FAFC;
+      --green-600: #16A34A;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--zinc-900);
+      background: var(--zinc-50);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .banner {
+      background: #FFF7ED;
+      border-bottom: 1px solid #FFEDD5;
+      color: #C2410C;
+      text-align: center;
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .banner a { color: #EA580C; font-weight: 700; margin-left: 0.5rem; text-decoration: underline; }
+
+    header {
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--zinc-200);
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .logo-group { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .logo-group img { width: 36px; height: 36px; object-fit: contain; }
+    .logo-text { font-size: 1.25rem; font-weight: 800; color: var(--zinc-900); }
+    .nav-cta {
+      background: var(--primary);
+      color: white;
+      padding: 0.5rem 1.25rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--primary-hover); }
+
+    .container { max-width: 1080px; margin: 0 auto; padding: 3rem 1.5rem; }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #FFEDD5;
+      color: #C2410C;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.25rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      line-height: 1.15;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+      color: var(--zinc-900);
+    }
+    @media (min-width: 768px) { h1 { font-size: 3.25rem; } }
+
+    .hero-lead {
+      font-size: 1.15rem;
+      color: var(--zinc-600);
+      max-width: 780px;
+      margin-bottom: 2rem;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    .btn-main {
+      background: #25D366;
+      color: white;
+      padding: 0.85rem 1.75rem;
+      border-radius: 0.75rem;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+    }
+    .btn-sec {
+      background: var(--zinc-900);
+      color: white;
+      padding: 0.85rem 1.75rem;
+      border-radius: 0.75rem;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin: 3rem 0;
+    }
+    @media (min-width: 768px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+
+    .card {
+      background: white;
+      border: 1px solid var(--zinc-200);
+      border-radius: 1.25rem;
+      padding: 1.75rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    }
+    .card h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .card p { font-size: 0.9rem; color: var(--zinc-600); line-height: 1.5; }
+
+    .pricing-box {
+      background: white;
+      border: 2px solid var(--primary);
+      border-radius: 1.5rem;
+      padding: 2.5rem;
+      margin: 3.5rem 0;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(249, 115, 22, 0.1);
+    }
+    .price-val { font-size: 3rem; font-weight: 900; color: var(--zinc-900); margin: 0.5rem 0; }
+
+    footer {
+      border-top: 1px solid var(--zinc-200);
+      background: #FFFFFF;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--zinc-500);
+    }
+    footer a { color: var(--primary); text-decoration: none; font-weight: 600; margin: 0 0.5rem; }
+  </style>
+</head>
+
+<body>
+
+  <div class="banner">
+    🔥 Built for Pizzerias & Italian Cafes: Plug-and-play POS Kit with 58mm Bluetooth Printer just ₹4,999.
+    <a href="https://wa.me/917012120844?text=Hi%20CafeQR!%20I%20want%20CafeQR%20POS%20for%20my%20Pizzeria." target="_blank">Claim Kit &rarr;</a>
+  </div>
+
+  <header>
+    <a href="https://www.cafeqr.in/" class="logo-group">
+      <img src="/logo.png" alt="CafeQR Logo">
+      <span class="logo-text">CafeQR</span>
+    </a>
+    <a href="https://wa.me/917012120844?text=Hi%20CafeQR!%20I%20want%20CafeQR%20POS%20for%20my%20Pizzeria." target="_blank" class="nav-cta">WhatsApp Demo</a>
+  </header>
+
+  <main class="container">
+    <div class="badge">🔥 CRUST & TOPPING KOT ROUTING</div>
+    <h1>Best Pizzeria & Pizza Restaurant POS Software | CafeQR</h1>
+    <p class="hero-lead">Built for the unique complexities of pizza crafting. Handle crust selections, half-and-half toppings, combos, and direct oven-station KOT routing without errors.</p>
+
+    <div class="cta-row">
+      <a href="https://wa.me/917012120844?text=Hi%20CafeQR!%20I%20want%20CafeQR%20POS%20for%20my%20Pizzeria." target="_blank" class="btn-main">
+        <span>💬</span> Chat for 10-Min Demo
+      </a>
+      <a href="https://www.cafeqr.in/#pricing" class="btn-sec">View All Plans</a>
+    </div>
+
+    <div class="grid-3">
+      
+      <div class="card">
+        <h3>⚡ Half-and-Half & Custom Crusts</h3>
+        <p>Flawless modifier options for thin crust, cheese burst, gourmet toppings, and combo deals without cashier errors.</p>
+      </div>
+      <div class="card">
+        <h3>⚡ Oven & Prep Station KOT Routing</h3>
+        <p>Orders automatically dispatch to the pizza prep station printer or screen with exact customer customizations.</p>
+      </div>
+      <div class="card">
+        <h3>⚡ Free Direct Pizza Delivery Store</h3>
+        <p>Launch your own branded pizza ordering website with custom delivery radius zones and zero platform commissions.</p>
+      </div>
+    </div>
+
+    <div class="pricing-box">
+      <div class="badge">RECOMMENDED FOR PIZZERIAS & ITALIAN CAFES</div>
+      <h2>CafeQR Complete Starter Hardware Kit</h2>
+      <p style="color: var(--zinc-600); margin-top: 0.5rem;">Everything you need to launch professional billing in 10 minutes</p>
+      <div class="price-val">₹4,999 <span style="font-size: 1rem; color: var(--zinc-500); font-weight: normal;">/ all-inclusive</span></div>
+      <p style="color: #16A34A; font-weight: 700; margin-bottom: 1.5rem;">✓ Portable 58mm Bluetooth Printer Included + 1-Year Full POS License</p>
+      <a href="https://wa.me/917012120844?text=Hi%20CafeQR!%20I%20want%20CafeQR%20POS%20for%20my%20Pizzeria." target="_blank" class="btn-main" style="padding: 1rem 2rem;">
+        Get Started Today &rarr;
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 CafeQR. All rights reserved. • <a href="https://www.cafeqr.in/">Visit Homepage</a> • <a href="https://www.cafeqr.in/compare/">Compare POS Alternatives</a></p>
+  </footer>
+
+</body>
+</html>
